@@ -1,0 +1,31 @@
+/* Layout — containers & structure */
+
+.container-lux {
+    width: min(100% - 2rem, 1240px);
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: 0;
+}
+
+@media (max-width: 575px) {
+    .container-lux {
+        width: min(100% - 1.5rem, 1240px);
+    }
+}
+
+@media (max-width: 390px) {
+    .container-lux {
+        width: min(100% - 1.25rem, 1240px);
+    }
+}
+
+.responsive-embed {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.responsive-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}

@@ -1,0 +1,100 @@
+/* Responsive refinements — mobile-first overrides */
+
+@media (max-width: 991px) {
+    .btn-gold,
+    .btn-ghost-lux {
+        letter-spacing: 0.06em;
+    }
+}
+
+@media (max-width: 767px) {
+    .eyebrow {
+        letter-spacing: 0.22em;
+        gap: 0.5rem;
+        font-size: 0.68rem;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+        width: 16px;
+    }
+
+    .site-footer-meta {
+        letter-spacing: 0.12em;
+        text-align: center;
+    }
+
+    .site-footer-meta span {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (max-width: 575px) {
+    .btn-gold,
+    .btn-ghost-lux {
+        width: auto;
+        padding-inline: 1.15rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+    }
+
+    .hero-actions .btn-gold,
+    .hero-actions .btn-ghost-lux,
+    .cta-actions .btn-gold,
+    .cta-actions .btn-ghost-lux {
+        width: 100%;
+    }
+
+    .card-lux.card-lux-pad-mobile {
+        padding: 1.25rem !important;
+    }
+
+    .stat-grid-tight {
+        gap: 0.5rem;
+    }
+
+    .stat-grid-tight .hairline {
+        padding: 0.75rem 0.35rem;
+    }
+
+    .stat-grid-tight .stat-value {
+        font-size: 0.95rem;
+    }
+
+    .stat-grid-tight .stat-label {
+        letter-spacing: 0.08em;
+        font-size: 0.55rem;
+    }
+}
+
+@media (max-width: 390px) {
+    .eyebrow::before,
+    .eyebrow::after {
+        width: 10px;
+    }
+
+    .eyebrow {
+        letter-spacing: 0.16em;
+    }
+}
+
+/* Prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .fade-up,
+    .hero-slide,
+    .gold-divider::after,
+    .card-lux {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .hero-slide {
+        opacity: 1;
+        transform: none;
+    }
+
+    .hero-slide:not(:first-child) {
+        display: none;
+    }
+}

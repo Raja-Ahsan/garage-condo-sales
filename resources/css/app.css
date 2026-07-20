@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fallbacks so Breeze/auth pages stay stable if a lux color utility leaks in */
+:root {
+    --background: #f9fafb;
+    --foreground: #111827;
+    --surface: #ffffff;
+    --surface-2: #f3f4f6;
+    --card: #ffffff;
+    --card-foreground: #111827;
+    --popover: #ffffff;
+    --popover-foreground: #111827;
+    --primary: #4f46e5;
+    --primary-foreground: #ffffff;
+    --secondary: #e5e7eb;
+    --secondary-foreground: #111827;
+    --muted: #f3f4f6;
+    --muted-foreground: #6b7280;
+    --accent: #f3f4f6;
+    --accent-foreground: #111827;
+    --destructive: #dc2626;
+    --destructive-foreground: #ffffff;
+    --border: #e5e7eb;
+    --input: #e5e7eb;
+    --ring: #4f46e5;
+    --gold: #c9a227;
+    --gold-soft: #e0c36a;
+    --steel: #9ca3af;
+    --emerald-lux: #059669;
+    --radius: 0.5rem;
+}

@@ -1,0 +1,56 @@
+@import "./web/base.css";
+@import "./web/layout.css";
+@import "./web/components.css";
+@import "./web/pages.css";
+@import "./web/responsive.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Luxury dark-first palette (from elite-garage-suites-main) */
+:root {
+    --radius: 0.5rem;
+
+    --background: oklch(0.16 0.008 240);
+    --foreground: oklch(0.97 0.005 240);
+    --surface: oklch(0.19 0.008 240);
+    --surface-2: oklch(0.23 0.01 240);
+
+    --card: oklch(0.19 0.008 240);
+    --card-foreground: oklch(0.97 0.005 240);
+    --popover: oklch(0.19 0.008 240);
+    --popover-foreground: oklch(0.97 0.005 240);
+
+    --primary: oklch(0.82 0.09 82);
+    --primary-foreground: oklch(0.16 0.008 240);
+    --secondary: oklch(0.28 0.01 240);
+    --secondary-foreground: oklch(0.97 0.005 240);
+
+    --muted: oklch(0.24 0.008 240);
+    --muted-foreground: oklch(0.72 0.01 240);
+    --accent: oklch(0.55 0.11 175);
+    --accent-foreground: oklch(0.98 0 0);
+
+    --destructive: oklch(0.62 0.22 27);
+    --destructive-foreground: oklch(0.98 0 0);
+
+    --border: oklch(0.32 0.008 240 / 60%);
+    --input: oklch(0.28 0.008 240);
+    --ring: oklch(0.82 0.09 82);
+
+    --gold: oklch(0.82 0.09 82);
+    --gold-soft: oklch(0.9 0.06 85);
+    --steel: oklch(0.72 0.012 240);
+    --emerald-lux: oklch(0.55 0.11 175);
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+@layer base {
+    * {
+        border-color: var(--border);
+    }
+}
