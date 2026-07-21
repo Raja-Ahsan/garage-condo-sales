@@ -18,10 +18,21 @@
             Rare Side-by-Side <span class="gold-text">Luxury Garage Condo</span> Suites in Allen, Texas
         </h1>
         <p class="hero-lead fade-up mt-4 sm:mt-6 text-muted-foreground" style="animation-delay: .3s">
-            2,930 sq ft of curated, connected space inside the acclaimed StarCreek
-            Community by Garages of America — engineered for collectors,
-            entrepreneurs and the automotive lifestyle.
+            2,930 sq ft of curated
         </p>
+        <ul class="hero-points fade-up mt-5 sm:mt-6 max-w-2xl space-y-2.5 sm:space-y-3" style="animation-delay: .38s">
+            @foreach ([
+                'There are 2 side-by-side garage units.',
+                'The project sold out in 2017.',
+                'No side-by-side unit has been available since the original sellout.',
+                'This is a rare opportunity for buyers/investors looking for larger, connected garage space.',
+            ] as $point)
+                <li class="flex items-start gap-3 text-sm sm:text-[0.95rem] text-muted-foreground leading-relaxed">
+                    <span class="gold-text font-display leading-none mt-1 shrink-0" aria-hidden="true">✦</span>
+                    <span>{{ $point }}</span>
+                </li>
+            @endforeach
+        </ul>
         <div class="fade-up mt-8 sm:mt-10 flex flex-wrap items-start gap-6 sm:gap-8" style="animation-delay: .45s">
             <div class="min-w-0">
                 <p class="text-xs uppercase tracking-[0.25em] text-muted-foreground">Offered At</p>

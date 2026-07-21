@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Web\BentleyPromotionController;
 use App\Http\Controllers\Web\ComparablesController;
 use App\Http\Controllers\Web\ContactController;
 use App\Http\Controllers\Web\HomeController;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 Route::get('/', [HomeController::class, 'index'])->name('web.home');
+Route::get('/bentley-promotion', [BentleyPromotionController::class, 'index'])->name('web.bentley');
 Route::get('/specifications', [SpecificationsController::class, 'index'])->name('web.specifications');
 Route::get('/comparables', [ComparablesController::class, 'index'])->name('web.comparables');
 Route::get('/map', [MapController::class, 'index'])->name('web.map');

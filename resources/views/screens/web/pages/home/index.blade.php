@@ -5,6 +5,7 @@
 
 @section('content')
     @include('screens.web.pages.home.sections.hero')
+    @include('screens.web.pages.home.sections.bentley-promotion')
     @include('screens.web.pages.home.sections.overview')
     @include('screens.web.pages.home.sections.highlights')
     @include('screens.web.pages.home.sections.units')
@@ -13,4 +14,5 @@
     @include('screens.web.pages.home.sections.lifestyle')
     @include('screens.web.pages.home.sections.credibility')
     @include('screens.web.partials.cta')
+    @include('screens.web.pages.home.sections.disclaimers')
 @endsection
