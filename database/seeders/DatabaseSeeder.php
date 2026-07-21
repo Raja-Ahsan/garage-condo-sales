@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CmsModuleSeeder::class,
             CmsModulePermissionsSeeder::class,
+            SliderSeeder::class,
         ]);
     }
 }

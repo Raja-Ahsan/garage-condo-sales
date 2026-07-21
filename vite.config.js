@@ -8,8 +8,11 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/css/web.css',
+                'resources/css/admin/admin.css',
                 'resources/js/app.js',
                 'resources/js/app.jsx',
+                'resources/js/admin/admin.js',
+                'resources/js/admin/dashboard-charts.js',
             ],
             refresh: true,
         }),

@@ -1,6 +1,15 @@
-@extends('layouts.admin.master')
+@extends('screens.admin.layouts.app')
+
+@section('title', 'Dashboard')
+@section('page_title', 'Dashboard')
+
+@section('breadcrumb')
+    <li class="breadcrumb-item">Dashboard</li>
+    <li class="breadcrumb-item active">Default</li>
+@endsection
+
 @section('content')
-  <div class="container-fluid default-dashboard">
+  <div class="container-fluid default-dashboard px-0">
     <div class="row widget-grid">
       <div class="col-xxl-4 col-sm-6 box-col-6">
         <div class="card profile-box">
@@ -8,13 +17,12 @@
             <div class="d-flex media-wrapper justify-content-between">
               <div class="flex-grow-1">
                 <div class="greeting-user">
-                  <h2 class="f-w-600">Welcome Emay Walter!</h2>
-                  <p>Here whats happing in your account today</p>
+                  <h2 class="f-w-600">Welcome {{ $user->name }}!</h2>
+                  <p>Here&rsquo;s what&rsquo;s happening with {{ $property['name'] ?? 'your listing' }} today.</p>
                   <div class="whatsnew-btn">
                     <a
                       class="btn btn-outline-white"
-                      href="user-profile.html"
-                      target="_blank">View Profile</a>
+                      href="{{ route('profile.edit') }}">View Profile</a>
                   </div>
                 </div>
               </div>
@@ -75,7 +83,7 @@
             <div class="cartoon">
               <img
                 class="img-fluid"
-                src="../assets/images/dashboard/cartoon.svg"
+                src="{{ asset('assets/admin/images/dashboard/cartoon.svg') }}"
                 alt="vector women with leptop" />
             </div>
           </div>
@@ -91,54 +99,49 @@
                     <div class="bg-round">
                       <svg>
                         <use
-                          href="../assets/svg/icon-sprite.svg#c-revenue"></use>
+                          href="{{ asset('assets/admin/svg/icon-sprite.svg') }}#c-revenue"></use>
                       </svg><svg class="half-circle svg-fill">
                         <use
-                          href="../assets/svg/icon-sprite.svg#halfcircle"></use>
+                          href="{{ asset('assets/admin/svg/icon-sprite.svg') }}#halfcircle"></use>
                       </svg>
                     </div>
                   </div>
                   <div>
                     <h4>
-                      $<span class="counter" data-target="45195">0</span>
+                      $<span class="counter" data-target="{{ (int) ($property['price'] ?? 0) }}">0</span>
                     </h4>
-                    <span class="f-light">Revenue</span>
+                    <span class="f-light">Listing Price</span>
                   </div>
                 </div>
                 <div class="font-success f-w-500">
-                  <i
-                    class="bookmark-search me-1"
-                    data-feather="trending-up"></i><span class="txt-success">+50%</span>
+                  <i class="bookmark-search me-1" data-feather="tag"></i>
+                  <span class="txt-success">{{ $stats['price_label'] ?? '' }}</span>
                 </div>
               </div>
             </div>
-            <div class="col-xl-12">
-              <div class="card widget-1">
-                <div class="card-body">
-                  <div class="widget-content">
-                    <div class="widget-round success">
-                      <div class="bg-round">
-                        <svg>
-                          <use
-                            href="../assets/svg/icon-sprite.svg#c-customer"></use>
-                        </svg><svg class="half-circle svg-fill">
-                          <use
-                            href="../assets/svg/icon-sprite.svg#halfcircle"></use>
-                        </svg>
-                      </div>
-                    </div>
-                    <div>
-                      <h4>
-                        <span class="counter" data-target="845">0</span>+
-                      </h4>
-                      <span class="f-light">Customers</span>
+            <div class="card widget-1">
+              <div class="card-body">
+                <div class="widget-content">
+                  <div class="widget-round success">
+                    <div class="bg-round">
+                      <svg>
+                        <use href="{{ asset('assets/admin/svg/icon-sprite.svg') }}#c-customer"></use>
+                      </svg>
+                      <svg class="half-circle svg-fill">
+                        <use href="{{ asset('assets/admin/svg/icon-sprite.svg') }}#halfcircle"></use>
+                      </svg>
                     </div>
                   </div>
-                  <div class="font-danger f-w-500">
-                    <i
-                      class="bookmark-search me-1"
-                      data-feather="trending-down"></i><span class="txt-danger">-40%</span>
+                  <div>
+                    <h4>
+                      <span class="counter" data-target="{{ (int) ($stats['users'] ?? 0) }}">0</span>+
+                    </h4>
+                    <span class="f-light">Users</span>
                   </div>
+                </div>
+                <div class="font-primary f-w-500">
+                  <i class="bookmark-search me-1" data-feather="users"></i>
+                  <span class="txt-primary">Admin accounts</span>
                 </div>
               </div>
             </div>
@@ -155,52 +158,48 @@
                     <div class="bg-round">
                       <svg>
                         <use
-                          href="../assets/svg/icon-sprite.svg#c-profit"></use>
+                          href="{{ asset('assets/admin/svg/icon-sprite.svg') }}#c-profit"></use>
                       </svg><svg class="half-circle svg-fill">
                         <use
-                          href="../assets/svg/icon-sprite.svg#halfcircle"></use>
+                          href="{{ asset('assets/admin/svg/icon-sprite.svg') }}#halfcircle"></use>
                       </svg>
                     </div>
                   </div>
                   <div>
                     <h4>
-                      <span class="counter" data-target="80">0</span>%
+                      <span class="counter" data-target="{{ (int) ($stats['units'] ?? 0) }}">0</span>
                     </h4>
-                    <span class="f-light">Profit</span>
+                    <span class="f-light">Units</span>
                   </div>
                 </div>
-                <div class="font-danger f-w-500">
-                  <i
-                    class="bookmark-search me-1"
-                    data-feather="trending-down"></i><span class="txt-danger">-20%</span>
+                <div class="font-primary f-w-500">
+                  <i class="bookmark-search me-1" data-feather="home"></i>
+                  <span class="txt-primary">Garage suites</span>
                 </div>
               </div>
             </div>
-            <div class="col-xl-12">
-              <div class="card widget-1">
-                <div class="card-body">
-                  <div class="widget-content">
-                    <div class="widget-round primary">
-                      <div class="bg-round">
-                        <svg class="fill-primary">
-                          <use
-                            href="../assets/svg/icon-sprite.svg#c-invoice"></use>
-                        </svg><svg class="half-circle svg-fill">
-                          <use
-                            href="../assets/svg/icon-sprite.svg#halfcircle"></use>
-                        </svg>
-                      </div>
-                    </div>
-                    <div>
-                      <h4 class="counter" data-target="10905">0</h4>
-                      <span class="f-light">Invoices</span>
+            <div class="card widget-1">
+              <div class="card-body">
+                <div class="widget-content">
+                  <div class="widget-round primary">
+                    <div class="bg-round">
+                      <svg class="fill-primary">
+                        <use
+                          href="{{ asset('assets/admin/svg/icon-sprite.svg') }}#c-invoice"></use>
+                      </svg><svg class="half-circle svg-fill">
+                        <use
+                          href="{{ asset('assets/admin/svg/icon-sprite.svg') }}#halfcircle"></use>
+                      </svg>
                     </div>
                   </div>
-                  <div class="font-success f-w-500">
-                    <i
-                      class="bookmark-search me-1"
-                      data-feather="trending-up"></i><span class="txt-success">+50%</span>
+                  <div>
+                    <h4 class="counter" data-target="{{ (int) ($stats['photos'] ?? 0) }}">0</h4>
+                    <span class="f-light">Photos</span>
                   </div>
+                </div>
+                <div class="font-success f-w-500">
+                  <i class="bookmark-search me-1" data-feather="image"></i>
+                  <span class="txt-success">Gallery assets</span>
                 </div>
               </div>
             </div>
@@ -291,10 +290,10 @@
                       <div class="d-flex">
                         <img
                           class="img-fluid img-40 rounded-circle me-2"
-                          src="../assets/images/dashboard/user/2.jpg"
+                          src="{{ asset('assets/admin/images/dashboard/user/2.jpg') }}"
                           alt="user" />
                         <div class="img-content-box">
-                          <a class="f-w-500" href="products-list.html">Jane Cooper</a>
+                          <a class="f-w-500" href="javascript:void(0)">Jane Cooper</a>
                           <p class="mb-0 f-light">#452140</p>
                         </div>
                       </div>
@@ -308,10 +307,10 @@
                       <div class="d-flex">
                         <img
                           class="img-fluid img-40 rounded-circle me-2"
-                          src="../assets/images/dashboard/user/3.jpg"
+                          src="{{ asset('assets/admin/images/dashboard/user/3.jpg') }}"
                           alt="user" />
                         <div class="img-content-box">
-                          <a class="f-w-500" href="products-list.html">Wade Warren</a>
+                          <a class="f-w-500" href="javascript:void(0)">Wade Warren</a>
                           <p class="mb-0 f-light">#844967</p>
                         </div>
                       </div>
@@ -325,10 +324,10 @@
                       <div class="d-flex">
                         <img
                           class="img-fluid img-40 rounded-circle me-2"
-                          src="../assets/images/dashboard/user/4.jpg"
+                          src="{{ asset('assets/admin/images/dashboard/user/4.jpg') }}"
                           alt="user" />
                         <div class="img-content-box">
-                          <a class="f-w-500" href="products-list.html">Guy Hawkins</a>
+                          <a class="f-w-500" href="javascript:void(0)">Guy Hawkins</a>
                           <p class="mb-0 f-light">#321489</p>
                         </div>
                       </div>
@@ -342,10 +341,10 @@
                       <div class="d-flex">
                         <img
                           class="img-fluid img-40 rounded-circle me-2"
-                          src="../assets/images/dashboard/user/5.jpg"
+                          src="{{ asset('assets/admin/images/dashboard/user/5.jpg') }}"
                           alt="user" />
                         <div class="img-content-box">
-                          <a class="f-w-500" href="products-list.html">Jake Spy</a>
+                          <a class="f-w-500" href="javascript:void(0)">Jake Spy</a>
                           <p class="mb-0 f-light">#954687</p>
                         </div>
                       </div>
@@ -359,10 +358,10 @@
                       <div class="d-flex">
                         <img
                           class="img-fluid img-40 rounded-circle me-2"
-                          src="../assets/images/dashboard-9/user/1.png"
+                          src="{{ asset('assets/admin/images/dashboard-9/user/1.png') }}"
                           alt="user" />
                         <div class="img-content-box">
-                          <a class="f-w-500" href="products-list.html">Devin Jake</a>
+                          <a class="f-w-500" href="javascript:void(0)">Devin Jake</a>
                           <p class="mb-0 f-light">#562778</p>
                         </div>
                       </div>
@@ -376,10 +375,10 @@
                       <div class="d-flex">
                         <img
                           class="img-fluid img-40 rounded-circle me-2"
-                          src="../assets/images/dashboard-9/user/2.png"
+                          src="{{ asset('assets/admin/images/dashboard-9/user/2.png') }}"
                           alt="user" />
                         <div class="img-content-box">
-                          <a class="f-w-500" href="products-list.html">Jacob Jones</a>
+                          <a class="f-w-500" href="javascript:void(0)">Jacob Jones</a>
                           <p class="mb-0 f-light">#589356</p>
                         </div>
                       </div>
@@ -393,10 +392,10 @@
                       <div class="d-flex">
                         <img
                           class="img-fluid img-40 rounded-circle me-2"
-                          src="../assets/images/dashboard-9/user/5.png"
+                          src="{{ asset('assets/admin/images/dashboard-9/user/5.png') }}"
                           alt="user" />
                         <div class="img-content-box">
-                          <a class="f-w-500" href="products-list.html">Jams Bone</a>
+                          <a class="f-w-500" href="javascript:void(0)">Jams Bone</a>
                           <p class="mb-0 f-light">#589657</p>
                         </div>
                       </div>
@@ -410,10 +409,10 @@
                       <div class="d-flex">
                         <img
                           class="img-fluid img-40 rounded-circle me-2"
-                          src="../assets/images/dashboard-9/user/3.png"
+                          src="{{ asset('assets/admin/images/dashboard-9/user/3.png') }}"
                           alt="user" />
                         <div class="img-content-box">
-                          <a class="f-w-500" href="products-list.html">Mili Pais</a>
+                          <a class="f-w-500" href="javascript:void(0)">Mili Pais</a>
                           <p class="mb-0 f-light">#589654</p>
                         </div>
                       </div>
@@ -603,19 +602,19 @@
                     <li>
                       <img
                         class="img-fluid"
-                        src="../assets/images/dashboard/bg-1.png"
+                        src="{{ asset('assets/admin/images/dashboard/bg-1.png') }}"
                         alt="background" />
                     </li>
                     <li>
                       <img
                         class="img-fluid"
-                        src="../assets/images/dashboard/bg-2.png"
+                        src="{{ asset('assets/admin/images/dashboard/bg-2.png') }}"
                         alt="background" />
                     </li>
                     <li>
                       <img
                         class="img-fluid"
-                        src="../assets/images/dashboard/bg-3.png"
+                        src="{{ asset('assets/admin/images/dashboard/bg-3.png') }}"
                         alt="background" />
                     </li>
                   </ul>
@@ -692,13 +691,13 @@
                         <div class="currency-icon warning">
                           <img
                             class="img-fluid"
-                            src="../assets/images/dashboard-2/order/sub-product/16.png"
+                            src="{{ asset('assets/admin/images/dashboard-2/order/sub-product/16.png') }}"
                             alt="" />
                         </div>
                         <div>
                           <a
                             class="f-14 mb-0 f-w-500 c-light"
-                            href="product-details.html">Bag</a>
+                            href="javascript:void(0)">Bag</a>
                           <p class="c-o-light">#452140</p>
                         </div>
                       </div>
@@ -721,13 +720,13 @@
                         <div class="currency-icon warning">
                           <img
                             class="img-fluid"
-                            src="../assets/images/dashboard-2/order/sub-product/25.png"
+                            src="{{ asset('assets/admin/images/dashboard-2/order/sub-product/25.png') }}"
                             alt="" />
                         </div>
                         <div>
                           <a
                             class="f-14 mb-0 f-w-500 c-light"
-                            href="product-details.html">Sofa</a>
+                            href="javascript:void(0)">Sofa</a>
                           <p class="c-o-light">#844967</p>
                         </div>
                       </div>
@@ -750,13 +749,13 @@
                         <div class="currency-icon warning">
                           <img
                             class="img-fluid"
-                            src="../assets/images/dashboard-2/order/sub-product/26.png"
+                            src="{{ asset('assets/admin/images/dashboard-2/order/sub-product/26.png') }}"
                             alt="" />
                         </div>
                         <div>
                           <a
                             class="f-14 mb-0 f-w-500 c-light"
-                            href="product-details.html">Lamp</a>
+                            href="javascript:void(0)">Lamp</a>
                           <p class="c-o-light">#321489</p>
                         </div>
                       </div>
@@ -779,13 +778,13 @@
                         <div class="currency-icon warning">
                           <img
                             class="img-fluid"
-                            src="../assets/images/dashboard-2/order/sub-product/24.png"
+                            src="{{ asset('assets/admin/images/dashboard-2/order/sub-product/24.png') }}"
                             alt="" />
                         </div>
                         <div>
                           <a
                             class="f-14 mb-0 f-w-500 c-light"
-                            href="product-details.html">Watch</a>
+                            href="javascript:void(0)">Watch</a>
                           <p class="c-o-light">#954687</p>
                         </div>
                       </div>
@@ -808,13 +807,13 @@
                         <div class="currency-icon warning">
                           <img
                             class="img-fluid"
-                            src="../assets/images/dashboard-2/order/sub-product/6.png"
+                            src="{{ asset('assets/admin/images/dashboard-2/order/sub-product/6.png') }}"
                             alt="" />
                         </div>
                         <div>
                           <a
                             class="f-14 mb-0 f-w-500 c-light"
-                            href="product-details.html">Football</a>
+                            href="javascript:void(0)">Football</a>
                           <p class="c-o-light">#896748</p>
                         </div>
                       </div>
@@ -837,13 +836,13 @@
                         <div class="currency-icon warning">
                           <img
                             class="img-fluid"
-                            src="../assets/images/dashboard-2/order/sub-product/10.png"
+                            src="{{ asset('assets/admin/images/dashboard-2/order/sub-product/10.png') }}"
                             alt="" />
                         </div>
                         <div>
                           <a
                             class="f-14 mb-0 f-w-500 c-light"
-                            href="product-details.html">T-shirt</a>
+                            href="javascript:void(0)">T-shirt</a>
                           <p class="c-o-light">#321489</p>
                         </div>
                       </div>
@@ -866,13 +865,13 @@
                         <div class="currency-icon warning">
                           <img
                             class="img-fluid"
-                            src="../assets/images/dashboard-2/order/sub-product/11.png"
+                            src="{{ asset('assets/admin/images/dashboard-2/order/sub-product/11.png') }}"
                             alt="" />
                         </div>
                         <div>
                           <a
                             class="f-14 mb-0 f-w-500 c-light"
-                            href="product-details.html">Sleeper</a>
+                            href="javascript:void(0)">Sleeper</a>
                           <p class="c-o-light">#452140</p>
                         </div>
                       </div>
@@ -895,13 +894,13 @@
                         <div class="currency-icon warning">
                           <img
                             class="img-fluid"
-                            src="../assets/images/dashboard-2/order/sub-product/14.png"
+                            src="{{ asset('assets/admin/images/dashboard-2/order/sub-product/14.png') }}"
                             alt="" />
                         </div>
                         <div>
                           <a
                             class="f-14 mb-0 f-w-500 c-light"
-                            href="product-details.html">Shoes</a>
+                            href="javascript:void(0)">Shoes</a>
                           <p class="c-o-light">#844967</p>
                         </div>
                       </div>
@@ -928,17 +927,24 @@
         <div class="card buy-card">
           <img
             class="img-fluid"
-            src="../assets/images/dashboard/purchase1.png"
-            alt="vector mens with laptop" />
+            src="{{ asset('assets/admin/images/dashboard/purchase1.png') }}"
+            alt="Listing preview" />
           <div class="card-body">
-            <h6 class="mb-3">
-              Buy <a class="txt-info" href="#!">Pro Account </a>to
-              Explore Premium Features
-            </h6>
+            <h6 class="mb-2">{{ $property['name'] ?? 'Property listing' }}</h6>
+            <p class="mb-2 f-light">
+              {{ $property['price_label'] ?? '' }}
+              @if (! empty($stats['units']))
+                · {{ $stats['units'] }} units
+              @endif
+              @if (! empty($stats['photos']))
+                · {{ $stats['photos'] }} photos
+              @endif
+            </p>
             <a
               class="purchase-btn btn btn-primary btn-hover-effect f-w-500"
-              href="https://1.envato.market/3GVzd"
-              target="_blank">Buy Now</a>
+              href="{{ route('web.home') }}"
+              target="_blank"
+              rel="noopener noreferrer">View public site</a>
           </div>
         </div>
       </div>
@@ -1050,4 +1056,16 @@
       </div>
     </div>
   </div>
-  @endsection
+@endsection
+
+@push('scripts')
+<script src="{{ asset('assets/admin/js/chart/apex-chart/apex-chart.js') }}"></script>
+<script src="{{ asset('assets/admin/js/chart/apex-chart/stock-prices.js') }}"></script>
+<script src="{{ asset('assets/admin/js/counter/counter-custom.js') }}"></script>
+<script src="{{ asset('assets/admin/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/admin/js/datatable/datatables/dataTables.js') }}"></script>
+<script src="{{ asset('assets/admin/js/datatable/datatables/dataTables.select.js') }}"></script>
+<script src="{{ asset('assets/admin/js/datatable/datatables/select.bootstrap5.js') }}"></script>
+<script src="{{ asset('assets/admin/js/datatable/datatables/datatable.custom.js') }}"></script>
+@vite('resources/js/admin/dashboard-charts.js')
+@endpush

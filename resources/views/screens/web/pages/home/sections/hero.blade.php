@@ -1,6 +1,6 @@
 @php
-    $heroPhotos = collect($photos)->map(fn ($p) => [
-        'key' => $p['key'],
+    $heroPhotos = collect($heroPhotos ?? $photos ?? [])->map(fn ($p) => [
+        'key' => $p['key'] ?? null,
         'src' => $p['src'],
     ])->values();
 @endphp

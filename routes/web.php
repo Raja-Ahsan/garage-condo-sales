@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\ComparablesController;
 use App\Http\Controllers\Web\ContactController;
@@ -37,11 +39,12 @@ Route::middleware('auth')->group(function () {
 
 /*
 |--------------------------------------------------------------------------
-| Cuba admin (auth middleware to be tightened in a later phase)
+| Cuba admin
 |--------------------------------------------------------------------------
 */
-Route::get('/admin', function () {
-    return view('screens.admin.dashboard.index');
-})->name('admin.dashboard');
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('sliders', SliderController::class)->except(['show']);
+});
 
 require __DIR__.'/auth.php';

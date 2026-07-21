@@ -1,20 +1,31 @@
 @php
     $modules = dynamic_sidebar();
+    $currentRoute = optional(request()->route())->getName();
 @endphp
 
 <div class="sidebar-wrapper" data-sidebar-layout="stroke-svg">
     <div class="logo-wrapper">
-        <a href="">
-            <img class="img-fluid for-light" src="{{ asset('assets/admin/images/logo/logo.png') }}" alt="" style="max-width: 200px" />
-            <img class="img-fluid for-dark" src="{{ asset('assets/admin/images/logo/logo_dark.png') }}" alt="" style="max-width: 200px" />
+        <a href="{{ route('admin.dashboard') }}">
+            <img
+                class="img-fluid for-light"
+                src="{{ asset('assets/admin/images/logo/logo.png') }}"
+                alt="{{ config('app.name') }}"
+                style="max-width: 200px"
+            />
+            <img
+                class="img-fluid for-dark"
+                src="{{ asset('assets/admin/images/logo/logo_dark.png') }}"
+                alt="{{ config('app.name') }}"
+                style="max-width: 200px"
+            />
         </a>
 
-        <div class="back-btn">
+        <div class="back-btn" role="button" tabindex="0" aria-label="Collapse sidebar">
             <i class="fa-solid fa-angle-left"></i>
         </div>
     </div>
 
-    <nav class="sidebar-main">
+    <nav class="sidebar-main" aria-label="Admin navigation">
         <div class="left-arrow" id="left-arrow">
             <i data-feather="arrow-left"></i>
         </div>
@@ -34,37 +45,56 @@
                     </div>
                 </li>
 
-                @foreach ($modules as $module)
+                @forelse ($modules as $module)
                     @php
                         $hasChildren = $module->children && $module->children->count() > 0;
+                        $childActive = $hasChildren && $module->children->contains(
+                            fn ($child) => $child->route_name && $currentRoute === $child->route_name
+                        );
+                        $isActive = ($module->route_name && $currentRoute === $module->route_name) || $childActive;
+                        $moduleUrl = $hasChildren
+                            ? 'javascript:void(0)'
+                            : (Route::has($module->route_name) ? route($module->route_name) : 'javascript:void(0)');
                     @endphp
 
-                    <li class="sidebar-list">
+                    <li class="sidebar-list {{ $isActive ? 'active' : '' }}">
                         <i class="fa-solid fa-thumbtack"></i>
 
                         <a
-                            href="{{ $hasChildren ? '#' : (Route::has($module->route_name) ? route($module->route_name) : '#') }}"
-                            class="sidebar-link sidebar-title {{ $hasChildren ? '' : 'link-nav' }}"
-                            @if ($hasChildren) aria-expanded="false" @endif
+                            href="{{ $moduleUrl }}"
+                            class="sidebar-link sidebar-title {{ $hasChildren ? '' : 'link-nav' }} {{ $isActive ? 'active' : '' }}"
+                            @if ($hasChildren)
+                                aria-expanded="{{ $childActive ? 'true' : 'false' }}"
+                            @endif
                         >
                             <span class="theme-icons">
-                                <i class="{{ $module->icon }}"></i>
+                                <i class="{{ $module->icon }}" aria-hidden="true"></i>
                             </span>
-
                             <span>{{ $module->name }}</span>
-
                             @if ($hasChildren)
                                 <div class="according-menu">
-                                    <i class="fa-solid fa-angle-right"></i>
+                                    <i class="fa-solid fa-angle-{{ $childActive ? 'down' : 'right' }}"></i>
                                 </div>
                             @endif
                         </a>
 
                         @if ($hasChildren)
-                            <ul class="sidebar-submenu">
+                            <ul class="sidebar-submenu" @if ($childActive) style="display: block;" @endif>
                                 @foreach ($module->children as $child)
-                                    <li>
-                                        <a href="{{ Route::has($child->route_name) ? route($child->route_name) : '#' }}">
+                                    @php
+                                        $childIsActive = $child->route_name && $currentRoute === $child->route_name;
+                                        $childUrl = Route::has($child->route_name)
+                                            ? route($child->route_name)
+                                            : 'javascript:void(0)';
+                                    @endphp
+                                    <li class="{{ $childIsActive ? 'active' : '' }}">
+                                        <a
+                                            href="{{ $childUrl }}"
+                                            class="{{ $childIsActive ? 'active' : '' }}"
+                                            @if (! Route::has($child->route_name))
+                                                title="Module not available yet"
+                                            @endif
+                                        >
                                             {{ $child->name }}
                                         </a>
                                     </li>
@@ -72,7 +102,16 @@
                             </ul>
                         @endif
                     </li>
-                @endforeach
+                @empty
+                    <li class="sidebar-list active">
+                        <a href="{{ route('admin.dashboard') }}" class="sidebar-link sidebar-title link-nav active">
+                            <span class="theme-icons">
+                                <i class="fa-regular fa-house" aria-hidden="true"></i>
+                            </span>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                @endforelse
             </ul>
         </div>
 

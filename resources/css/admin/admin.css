@@ -1,0 +1,5 @@
+/**
+ * Admin panel entry CSS.
+ * Loads brand theme only — never imports public web.css.
+ */
+@import "./theme.css";

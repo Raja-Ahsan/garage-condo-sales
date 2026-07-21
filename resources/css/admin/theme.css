@@ -1,0 +1,738 @@
+/**
+ * Admin brand theme — mirrors public frontend tokens (web.css)
+ * without importing public page CSS. Scoped to .admin-panel only.
+ */
+
+/* -------------------------------------------------------------------------- */
+/* Design tokens (extracted from resources/css/web.css + components.css)      */
+/* -------------------------------------------------------------------------- */
+
+.admin-panel {
+    /* Frontend CSS variables (OKLCH source of truth) */
+    --background: oklch(0.16 0.008 240);
+    --foreground: oklch(0.97 0.005 240);
+    --surface: oklch(0.19 0.008 240);
+    --surface-2: oklch(0.23 0.01 240);
+    --card: oklch(0.19 0.008 240);
+    --card-foreground: oklch(0.97 0.005 240);
+    --primary: oklch(0.82 0.09 82);
+    --primary-foreground: oklch(0.16 0.008 240);
+    --secondary: oklch(0.28 0.01 240);
+    --secondary-foreground: oklch(0.97 0.005 240);
+    --muted: oklch(0.24 0.008 240);
+    --muted-foreground: oklch(0.72 0.01 240);
+    --accent: oklch(0.55 0.11 175);
+    --accent-foreground: oklch(0.98 0 0);
+    --destructive: oklch(0.62 0.22 27);
+    --destructive-foreground: oklch(0.98 0 0);
+    --border: oklch(0.32 0.008 240 / 60%);
+    --input: oklch(0.28 0.008 240);
+    --ring: oklch(0.82 0.09 82);
+    --gold: oklch(0.82 0.09 82);
+    --gold-soft: oklch(0.9 0.06 85);
+    --steel: oklch(0.72 0.012 240);
+    --emerald-lux: oklch(0.55 0.11 175);
+    --radius: 0.5rem;
+
+    /* Admin aliases + hex companions for Cuba/ApexCharts */
+    --admin-primary: var(--primary);
+    --admin-primary-hex: #d9b678;
+    --admin-primary-deep: #a8823a;
+    --admin-primary-deeper: #8a6a2c;
+    --admin-primary-soft: var(--gold-soft);
+    --admin-primary-soft-hex: #e8d5a3;
+    --admin-primary-fg: var(--primary-foreground);
+    --admin-primary-fg-hex: #21242a;
+    --admin-secondary: var(--secondary);
+    --admin-secondary-hex: #3c414b;
+    --admin-accent: var(--accent);
+    --admin-accent-hex: #2f9e8f;
+    --admin-page-bg: var(--background);
+    --admin-page-bg-hex: #21242a;
+    --admin-card-bg: var(--card);
+    --admin-card-bg-hex: #282c33;
+    --admin-surface-2: var(--surface-2);
+    --admin-surface-2-hex: #32363f;
+    --admin-text: var(--foreground);
+    --admin-text-hex: #f4f5f7;
+    --admin-heading: var(--foreground);
+    --admin-muted: var(--muted-foreground);
+    --admin-muted-hex: #a9aeb8;
+    --admin-muted-fill: var(--muted);
+    --admin-muted-fill-hex: #333740;
+    --admin-border: var(--border);
+    --admin-border-solid: rgba(74, 78, 88, 0.6);
+    --admin-input: var(--input);
+    --admin-success: #65c15c;
+    --admin-warning: #ffb37c;
+    --admin-danger: var(--destructive);
+    --admin-danger-hex: #e0534a;
+    --admin-info: #48a3d7;
+    --admin-radius: var(--radius);
+    --admin-radius-btn: 2px;
+    --admin-radius-card: 4px;
+    --admin-shadow: 0 10px 30px -12px color-mix(in oklab, var(--gold) 60%, transparent);
+    --admin-shadow-hover: 0 18px 40px -12px color-mix(in oklab, var(--gold) 70%, transparent);
+    --admin-font-body: Inter, ui-sans-serif, system-ui, sans-serif;
+    --admin-font-display: "Playfair Display", "Times New Roman", serif;
+
+    /* Remap Cuba theme hooks */
+    --theme-default: var(--admin-primary-hex);
+    --theme-secondary: var(--admin-muted-hex);
+}
+
+/* Light toggle: keep gold brand, raise surfaces for readability */
+.admin-panel:not(.dark-only) {
+    --admin-page-bg: #eef0f3;
+    --admin-page-bg-hex: #eef0f3;
+    --admin-card-bg: #ffffff;
+    --admin-card-bg-hex: #ffffff;
+    --admin-surface-2: #f5f6f8;
+    --admin-surface-2-hex: #f5f6f8;
+    --admin-text: #21242a;
+    --admin-text-hex: #21242a;
+    --admin-heading: #21242a;
+    --admin-muted: #5c6370;
+    --admin-muted-hex: #5c6370;
+    --admin-border-solid: rgba(74, 78, 88, 0.22);
+    --theme-default: var(--admin-primary-hex);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Page shell                                                                 */
+/* -------------------------------------------------------------------------- */
+
+.admin-panel {
+    color: var(--admin-text);
+    font-family: var(--admin-font-body);
+    background-color: var(--admin-page-bg);
+    background-image:
+        radial-gradient(ellipse at top, oklch(0.22 0.02 240 / 0.55), transparent 60%),
+        radial-gradient(ellipse at bottom, oklch(0.14 0.01 240 / 0.85), transparent 55%);
+    background-attachment: fixed;
+}
+
+.admin-panel:not(.dark-only) {
+    background-image:
+        radial-gradient(ellipse at top, rgba(217, 182, 120, 0.12), transparent 55%),
+        radial-gradient(ellipse at bottom, rgba(47, 158, 143, 0.06), transparent 50%);
+}
+
+.admin-panel .page-wrapper,
+.admin-panel .page-body-wrapper,
+.admin-panel .page-body {
+    background: transparent !important;
+}
+
+.admin-panel .page-body {
+    min-width: 0;
+}
+
+.admin-panel h1,
+.admin-panel h2,
+.admin-panel h3,
+.admin-panel .page-title h3,
+.admin-panel .card .card-header h5,
+.admin-panel .greeting-user h2 {
+    font-family: var(--admin-font-display);
+    color: var(--admin-heading);
+    letter-spacing: -0.01em;
+}
+
+.admin-panel .f-light,
+.admin-panel .c-light,
+.admin-panel .c-o-light,
+.admin-panel .text-muted {
+    color: var(--admin-muted) !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Loader / chrome                                                            */
+/* -------------------------------------------------------------------------- */
+
+.admin-panel .loader-wrapper {
+    background: var(--admin-page-bg-hex);
+}
+
+.admin-panel .loader-index span,
+.admin-panel .loader-index > ::after,
+.admin-panel .loader-index > ::before {
+    background: var(--admin-primary-hex) !important;
+}
+
+.admin-panel .tap-top {
+    background: linear-gradient(135deg, var(--admin-primary-hex), var(--admin-primary-deep)) !important;
+    color: var(--admin-primary-fg-hex) !important;
+    border-radius: var(--admin-radius-btn);
+}
+
+.admin-panel .footer {
+    background: var(--admin-card-bg) !important;
+    border-top: 1px solid var(--admin-border-solid);
+    color: var(--admin-muted);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Header                                                                     */
+/* -------------------------------------------------------------------------- */
+
+.admin-panel .page-header {
+    background: color-mix(in oklab, var(--admin-card-bg) 88%, transparent) !important;
+    border-bottom: 1px solid var(--admin-border-solid) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.admin-panel .page-header .header-wrapper {
+    background: transparent !important;
+}
+
+.admin-panel .page-header .nav-menus li > .mode svg,
+.admin-panel .page-header .profile-media span,
+.admin-panel .page-header .profile-media p {
+    color: var(--admin-text);
+}
+
+.admin-panel .page-header .profile-media p {
+    color: var(--admin-muted) !important;
+}
+
+.admin-panel .page-header .toggle-sidebar i,
+.admin-panel .page-header .status_toggle {
+    color: var(--admin-primary-hex) !important;
+    stroke: var(--admin-primary-hex);
+}
+
+.admin-panel .profile-dropdown {
+    background: var(--admin-card-bg) !important;
+    border: 1px solid var(--admin-border-solid) !important;
+    border-radius: var(--admin-radius-card);
+    box-shadow: var(--admin-shadow);
+}
+
+.admin-panel .profile-dropdown li a {
+    color: var(--admin-text) !important;
+}
+
+.admin-panel .profile-dropdown li a:hover {
+    background: color-mix(in oklab, var(--gold) 12%, transparent) !important;
+    color: var(--admin-primary-soft-hex) !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Sidebar                                                                    */
+/* -------------------------------------------------------------------------- */
+
+.admin-panel .sidebar-wrapper {
+    background: var(--admin-card-bg) !important;
+    border-right: 1px solid var(--admin-border-solid);
+}
+
+.admin-panel .sidebar-wrapper .logo-wrapper,
+.admin-panel .sidebar-wrapper .logo-wrapper a {
+    background: transparent !important;
+    border-bottom: 1px solid var(--admin-border-solid);
+}
+
+.admin-panel .sidebar-wrapper .sidebar-main,
+.admin-panel .sidebar-wrapper .sidebar-links {
+    background: transparent !important;
+}
+
+.admin-panel .sidebar-wrapper .sidebar-link,
+.admin-panel .sidebar-wrapper .sidebar-link span,
+.admin-panel .sidebar-wrapper .sidebar-title > span {
+    color: var(--admin-muted) !important;
+}
+
+.admin-panel .sidebar-wrapper .sidebar-link:hover,
+.admin-panel .sidebar-wrapper .sidebar-link:hover span {
+    color: var(--admin-primary-soft-hex) !important;
+}
+
+.admin-panel .sidebar-wrapper .sidebar-list.active > .sidebar-link,
+.admin-panel .sidebar-wrapper .sidebar-link.active,
+.admin-panel .sidebar-wrapper .sidebar-link.active span,
+.admin-panel .sidebar-wrapper .sidebar-submenu a.active {
+    color: var(--admin-primary-hex) !important;
+}
+
+.admin-panel .sidebar-wrapper .sidebar-list.active > .sidebar-link,
+.admin-panel .sidebar-wrapper .sidebar-link.active {
+    background: color-mix(in oklab, var(--gold) 12%, transparent) !important;
+    border-radius: var(--admin-radius-card);
+}
+
+.admin-panel .sidebar-wrapper .sidebar-submenu {
+    background: transparent !important;
+}
+
+.admin-panel .sidebar-wrapper .sidebar-submenu a {
+    color: var(--admin-muted) !important;
+}
+
+.admin-panel .sidebar-wrapper .sidebar-submenu a:hover {
+    color: var(--admin-primary-hex) !important;
+}
+
+.admin-panel .sidebar-wrapper .theme-icons i {
+    color: inherit;
+}
+
+.admin-panel .sidebar-wrapper .back-btn,
+.admin-panel .sidebar-wrapper .mobile-back {
+    color: var(--admin-muted);
+}
+
+.admin-panel .pin-title h6 {
+    color: var(--admin-muted) !important;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Breadcrumbs                                                                */
+/* -------------------------------------------------------------------------- */
+
+.admin-panel .page-title {
+    background: transparent !important;
+}
+
+.admin-panel .page-title .breadcrumb .breadcrumb-item,
+.admin-panel .page-title .breadcrumb .breadcrumb-item a {
+    color: var(--admin-muted) !important;
+}
+
+.admin-panel .page-title .breadcrumb .breadcrumb-item.active {
+    color: var(--admin-primary-hex) !important;
+}
+
+.admin-panel .page-title .breadcrumb .stroke-icon {
+    stroke: var(--admin-primary-hex);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Cards & widgets                                                            */
+/* -------------------------------------------------------------------------- */
+
+.admin-panel .card {
+    background: linear-gradient(180deg, var(--admin-card-bg) 0%, var(--admin-page-bg) 100%) !important;
+    border: 1px solid color-mix(in oklab, var(--gold) 18%, transparent) !important;
+    border-radius: var(--admin-radius-card) !important;
+    box-shadow: none !important;
+    color: var(--admin-text);
+}
+
+.admin-panel .card .card-header {
+    background: transparent !important;
+    border-bottom: 1px solid var(--admin-border-solid) !important;
+}
+
+.admin-panel .card .card-header.card-no-border {
+    border-bottom: 0 !important;
+}
+
+.admin-panel .card .card-body {
+    color: var(--admin-text);
+}
+
+.admin-panel .default-dashboard .profile-box {
+    background:
+        linear-gradient(135deg, color-mix(in oklab, var(--gold) 18%, transparent), transparent 50%),
+        linear-gradient(180deg, var(--admin-card-bg) 0%, var(--admin-page-bg) 100%) !important;
+}
+
+.admin-panel .default-dashboard .widget-1 {
+    border-color: color-mix(in oklab, var(--gold) 22%, transparent) !important;
+}
+
+.admin-panel .default-dashboard .widget-1 .widget-content h4,
+.admin-panel .default-dashboard .widget-1 .counter {
+    color: var(--admin-heading) !important;
+}
+
+.admin-panel .txt-success,
+.admin-panel .font-success {
+    color: var(--admin-success) !important;
+}
+
+.admin-panel .txt-danger,
+.admin-panel .font-danger {
+    color: var(--admin-danger-hex) !important;
+}
+
+.admin-panel .txt-warning,
+.admin-panel .font-warning {
+    color: var(--admin-warning) !important;
+}
+
+.admin-panel .txt-primary,
+.admin-panel .font-primary {
+    color: var(--admin-primary-hex) !important;
+}
+
+.admin-panel .txt-info {
+    color: var(--admin-info) !important;
+}
+
+.admin-panel .widget-round.secondary .bg-round,
+.admin-panel .widget-round.primary .bg-round {
+    background: color-mix(in oklab, var(--gold) 16%, transparent) !important;
+}
+
+.admin-panel .widget-round.success .bg-round {
+    background: color-mix(in oklab, var(--accent) 18%, transparent) !important;
+}
+
+.admin-panel .widget-round.warning .bg-round {
+    background: color-mix(in oklab, var(--admin-warning) 18%, transparent) !important;
+}
+
+.admin-panel .buy-card .purchase-btn {
+    border-radius: var(--admin-radius-btn);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Buttons                                                                    */
+/* -------------------------------------------------------------------------- */
+
+.admin-panel .btn-primary,
+.admin-panel .btn-primary:focus,
+.admin-panel .btn-primary:active,
+.admin-panel .btn-primary.active {
+    background: linear-gradient(135deg, #d9b678, #a8823a) !important;
+    border-color: transparent !important;
+    color: #1a1a1a !important;
+    border-radius: var(--admin-radius-btn);
+    box-shadow: var(--admin-shadow);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+.admin-panel .btn-primary:hover {
+    filter: brightness(1.08);
+    box-shadow: var(--admin-shadow-hover);
+    color: #1a1a1a !important;
+}
+
+.admin-panel .btn-secondary,
+.admin-panel .btn-outline-primary {
+    background: transparent !important;
+    border: 1px solid color-mix(in oklab, var(--gold) 55%, transparent) !important;
+    color: var(--admin-primary-soft-hex) !important;
+    border-radius: var(--admin-radius-btn);
+}
+
+.admin-panel .btn-secondary:hover,
+.admin-panel .btn-outline-primary:hover {
+    background: color-mix(in oklab, var(--gold) 12%, transparent) !important;
+    color: #fff !important;
+}
+
+.admin-panel .btn-outline-white {
+    border-color: color-mix(in oklab, var(--gold) 55%, transparent) !important;
+    color: var(--admin-primary-soft-hex) !important;
+    border-radius: var(--admin-radius-btn);
+}
+
+.admin-panel .btn-outline-white:hover {
+    background: color-mix(in oklab, var(--gold) 12%, transparent) !important;
+    color: #fff !important;
+}
+
+.admin-panel .btn-danger {
+    background: var(--admin-danger-hex) !important;
+    border-color: var(--admin-danger-hex) !important;
+    color: #fff !important;
+    border-radius: var(--admin-radius-btn);
+}
+
+.admin-panel .btn-success {
+    background: var(--admin-success) !important;
+    border-color: var(--admin-success) !important;
+    color: #fff !important;
+    border-radius: var(--admin-radius-btn);
+}
+
+.admin-panel .btn-warning {
+    background: var(--admin-warning) !important;
+    border-color: var(--admin-warning) !important;
+    color: #21242a !important;
+    border-radius: var(--admin-radius-btn);
+}
+
+.admin-panel .btn:disabled,
+.admin-panel .btn.disabled {
+    opacity: 0.55;
+    filter: grayscale(0.2);
+    box-shadow: none !important;
+}
+
+.admin-panel .button-light-success {
+    background: color-mix(in oklab, var(--admin-success) 18%, transparent) !important;
+    color: var(--admin-success) !important;
+}
+
+.admin-panel .button-light-warning {
+    background: color-mix(in oklab, var(--admin-warning) 18%, transparent) !important;
+    color: var(--admin-warning) !important;
+}
+
+.admin-panel .button-light-danger {
+    background: color-mix(in oklab, var(--admin-danger-hex) 18%, transparent) !important;
+    color: var(--admin-danger-hex) !important;
+}
+
+.admin-panel .button-light-info {
+    background: color-mix(in oklab, var(--admin-info) 18%, transparent) !important;
+    color: var(--admin-info) !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Forms                                                                      */
+/* -------------------------------------------------------------------------- */
+
+.admin-panel .form-control,
+.admin-panel .form-select,
+.admin-panel input[type="text"],
+.admin-panel input[type="email"],
+.admin-panel input[type="password"],
+.admin-panel input[type="search"],
+.admin-panel textarea,
+.admin-panel select {
+    background-color: var(--admin-input) !important;
+    border: 1px solid var(--admin-border-solid) !important;
+    color: var(--admin-text) !important;
+    border-radius: var(--admin-radius-card) !important;
+}
+
+.admin-panel .form-control:focus,
+.admin-panel .form-select:focus,
+.admin-panel input:focus,
+.admin-panel textarea:focus,
+.admin-panel select:focus {
+    border-color: var(--admin-primary-hex) !important;
+    box-shadow: 0 0 0 0.2rem color-mix(in oklab, var(--gold) 25%, transparent) !important;
+    outline: none;
+}
+
+.admin-panel .form-control::placeholder {
+    color: var(--admin-muted);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Tables                                                                     */
+/* -------------------------------------------------------------------------- */
+
+.admin-panel .table {
+    --bs-table-bg: transparent;
+    --bs-table-color: var(--admin-text);
+    --bs-table-border-color: var(--admin-border-solid);
+    color: var(--admin-text);
+}
+
+.admin-panel .table > :not(caption) > * > * {
+    background-color: transparent;
+    border-bottom-color: var(--admin-border-solid);
+    color: var(--admin-text);
+}
+
+.admin-panel .table thead th {
+    background: var(--admin-surface-2) !important;
+    color: var(--admin-muted) !important;
+    border-bottom: 1px solid var(--admin-border-solid) !important;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+}
+
+.admin-panel .table tbody tr:hover > * {
+    background: color-mix(in oklab, var(--gold) 8%, transparent) !important;
+}
+
+.admin-panel .table-responsive {
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--admin-radius-card);
+}
+
+.admin-panel .dataTables_wrapper .dataTables_filter input,
+.admin-panel .dataTables_wrapper .dataTables_length select {
+    background: var(--admin-input) !important;
+    border: 1px solid var(--admin-border-solid) !important;
+    color: var(--admin-text) !important;
+    border-radius: var(--admin-radius-card);
+}
+
+.admin-panel .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: linear-gradient(135deg, #d9b678, #a8823a) !important;
+    border-color: transparent !important;
+    color: #1a1a1a !important;
+    border-radius: var(--admin-radius-btn) !important;
+}
+
+.admin-panel .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: color-mix(in oklab, var(--gold) 16%, transparent) !important;
+    border-color: color-mix(in oklab, var(--gold) 40%, transparent) !important;
+    color: var(--admin-primary-soft-hex) !important;
+}
+
+.admin-panel .dataTables_wrapper .dataTables_info,
+.admin-panel .dataTables_wrapper .dataTables_filter label,
+.admin-panel .dataTables_wrapper .dataTables_length label {
+    color: var(--admin-muted);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Dropdowns / modals / badges / alerts / tabs                                */
+/* -------------------------------------------------------------------------- */
+
+.admin-panel .dropdown-menu {
+    background: var(--admin-card-bg) !important;
+    border: 1px solid var(--admin-border-solid) !important;
+    border-radius: var(--admin-radius-card);
+    box-shadow: var(--admin-shadow);
+}
+
+.admin-panel .dropdown-item {
+    color: var(--admin-text) !important;
+}
+
+.admin-panel .dropdown-item:hover,
+.admin-panel .dropdown-item:focus {
+    background: color-mix(in oklab, var(--gold) 12%, transparent) !important;
+    color: var(--admin-primary-soft-hex) !important;
+}
+
+.admin-panel .modal-content {
+    background: var(--admin-card-bg) !important;
+    border: 1px solid var(--admin-border-solid) !important;
+    border-radius: var(--admin-radius-card);
+    color: var(--admin-text);
+}
+
+.admin-panel .modal-header,
+.admin-panel .modal-footer {
+    border-color: var(--admin-border-solid) !important;
+}
+
+.admin-panel .badge-light-success {
+    background: color-mix(in oklab, var(--admin-success) 18%, transparent) !important;
+    color: var(--admin-success) !important;
+}
+
+.admin-panel .badge-light-danger {
+    background: color-mix(in oklab, var(--admin-danger-hex) 18%, transparent) !important;
+    color: var(--admin-danger-hex) !important;
+}
+
+.admin-panel .badge-light-warning {
+    background: color-mix(in oklab, var(--admin-warning) 18%, transparent) !important;
+    color: var(--admin-warning) !important;
+}
+
+.admin-panel .badge-primary,
+.admin-panel .bg-primary {
+    background-color: var(--admin-primary-hex) !important;
+}
+
+.admin-panel .bg-secondary {
+    background-color: var(--admin-secondary-hex) !important;
+}
+
+.admin-panel .bg-warning {
+    background-color: var(--admin-warning) !important;
+}
+
+.admin-panel .alert-success {
+    background: color-mix(in oklab, var(--admin-success) 16%, transparent);
+    border-color: color-mix(in oklab, var(--admin-success) 40%, transparent);
+    color: var(--admin-text);
+}
+
+.admin-panel .alert-danger {
+    background: color-mix(in oklab, var(--admin-danger-hex) 16%, transparent);
+    border-color: color-mix(in oklab, var(--admin-danger-hex) 40%, transparent);
+    color: var(--admin-text);
+}
+
+.admin-panel .nav-tabs .nav-link.active {
+    color: var(--admin-primary-hex) !important;
+    border-color: var(--admin-primary-hex) !important;
+}
+
+.admin-panel .timeline-dot-primary,
+.admin-panel .circle.bg-primary {
+    background: var(--admin-primary-hex) !important;
+}
+
+.admin-panel .timeline-dot-success {
+    background: var(--admin-success) !important;
+}
+
+.admin-panel .timeline-dot-secondary {
+    background: var(--admin-accent-hex) !important;
+}
+
+.admin-panel .bg-lighter-primary {
+    background: color-mix(in oklab, var(--gold) 22%, transparent) !important;
+}
+
+.admin-panel .bg-lighter-success {
+    background: color-mix(in oklab, var(--admin-success) 22%, transparent) !important;
+}
+
+.admin-panel .bg-lighter-warning {
+    background: color-mix(in oklab, var(--admin-warning) 22%, transparent) !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Charts container                                                           */
+/* -------------------------------------------------------------------------- */
+
+.admin-panel .apexcharts-tooltip {
+    background: var(--admin-card-bg-hex) !important;
+    border: 1px solid var(--admin-border-solid) !important;
+    color: var(--admin-text-hex) !important;
+}
+
+.admin-panel .apexcharts-legend-text {
+    color: var(--admin-muted-hex) !important;
+}
+
+.admin-panel .apexcharts-gridline {
+    stroke: var(--admin-border-solid) !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Responsive safety                                                          */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 575.98px) {
+    .admin-panel .page-title h3 {
+        font-size: 1.25rem;
+    }
+
+    .admin-panel .default-dashboard .profile-box .greeting-user h2 {
+        font-size: 1.35rem;
+    }
+
+    .admin-panel .default-dashboard .widget-1 .widget-content h4 {
+        font-size: 1.1rem;
+    }
+
+    .admin-panel .header-wrapper .profile-media span {
+        max-width: 96px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .admin-panel .default-dashboard .recent-table {
+        margin-bottom: 0.5rem;
+    }
+}
