@@ -1,7 +1,7 @@
 @php
     $nav = [
         ['route' => 'web.home', 'label' => 'Home'],
-        ['route' => 'web.gallery', 'label' => 'Gallery'],
+        ['route' => 'web.bentley', 'label' => 'Gallery'],
         ['route' => 'web.specifications', 'label' => 'Specifications'],
         ['route' => 'web.comparables', 'label' => 'Comparables'],
         ['route' => 'web.map', 'label' => 'Location'],

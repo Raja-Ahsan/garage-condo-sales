@@ -12,6 +12,6 @@
     @include('screens.web.partials.cta', [
         'eyebrow' => 'Terms',
         'title' => 'Package sale · Direct from owner',
-        'body' => 'Both units offered as a package at '.$property['price_label'].'. 60–90 days post-closing requested for relocation. Subject to change without notice.',
+        'body' => 'Both units offered as a package at '.$property['price_label'].' 30 days, cash at closing. Subject to change without notice.',
     ])
 @endsection

@@ -19,10 +19,12 @@
         </h2>
         <div class="gold-divider my-6 md:my-8 max-w-[120px]"></div>
         <p class="text-muted-foreground leading-relaxed">
-            Immediately after or prominently connected to this section, feature the Bentley promotion.
+        Museum Quality Bentley Mulsanne w/MSRP $369,290.00 available,
+        with accepted full price, cash at closing, transaction. 
         </p>
         <p class="mt-4 text-muted-foreground leading-relaxed">
-            The Bentley promotion should be highly visible and use the images/content provided by the client.
+        w/ Additional Bonus Refurbished Genie GS-1930 Scissor Lift 
+        AND ALL PICS.
         </p>
         <a href="{{ Route::has('web.bentley') ? route('web.bentley') : '#' }}" class="btn-ghost-lux mt-8">
             View Details

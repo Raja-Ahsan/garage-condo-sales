@@ -41,8 +41,9 @@ class ComparablesController extends Controller
                     'body' => 'All upgrades and paint are approximately one year old — the next owner steps into a finished asset.',
                 ],
                 [
-                    'title' => 'Two Income Profiles',
-                    'body' => 'Owner-use, corporate garage, executive workshop or dual-tenant lease-back are all viable.',
+                    'title' => 'Two Purchase Bonus Options',
+                    'body' => 'Double Bonus w/ Accepted Cash Offer.',
+                    'href' => 'web.bentley',
                 ],
                 [
                     'title' => 'No Commission',

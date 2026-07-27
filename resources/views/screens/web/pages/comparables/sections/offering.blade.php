@@ -10,7 +10,7 @@
         <p class="text-muted-foreground max-w-xl mx-auto">
             Effectively priced <strong class="text-foreground">below</strong> what two
             comparable single units would cost — with a connected floor plan
-            that cannot be reassembled if separated.
+            that cannot be reassembled if sold separately.
         </p>
     </div>
 </section>

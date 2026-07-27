@@ -13,6 +13,6 @@
     @include('screens.web.partials.cta', [
         'eyebrow' => 'Private Showings',
         'title' => 'Experience the Bentley showcase in person.',
-        'body' => 'Schedule a private tour to see the suite and discuss this exclusive promotion.',
+        'body' => 'Call to Schedule to see the suite and discuss this exclusive promotion.',
     ])
 @endsection

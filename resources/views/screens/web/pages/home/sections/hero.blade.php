@@ -18,14 +18,16 @@
             Rare Side-by-Side <span class="gold-text">Luxury Garage Condo</span> Suites in Allen, Texas
         </h1>
         <p class="hero-lead fade-up mt-4 sm:mt-6 text-muted-foreground" style="animation-delay: .3s">
-            2,930 sq ft of curated
+        2,930 sq ft of curated floor space
         </p>
         <ul class="hero-points fade-up mt-5 sm:mt-6 max-w-2xl space-y-2.5 sm:space-y-3" style="animation-delay: .38s">
             @foreach ([
-                'There are 2 side-by-side garage units.',
-                'The project sold out in 2017.',
-                'No side-by-side unit has been available since the original sellout.',
-                'This is a rare opportunity for buyers/investors looking for larger, connected garage space.',
+                'Only 2 side-by-side garage units available since construction sold out in 2017. ',
+                'Side by side option sold at $40,000.00 premium',
+                'Units connected on both floors with locking doors.',
+                'Dividing wall can be eliminated to create one space.',
+                'This is a rare opportunity for buyers/investors looking for larger, connected garage space. ',
+                '3 separate loft areas on 2 levels for integrated storage.',
             ] as $point)
                 <li class="flex items-start gap-3 text-sm sm:text-[0.95rem] text-muted-foreground leading-relaxed">
                     <span class="gold-text font-display leading-none mt-1 shrink-0" aria-hidden="true">✦</span>
@@ -35,15 +37,20 @@
         </ul>
         <div class="fade-up mt-8 sm:mt-10 flex flex-wrap items-start gap-6 sm:gap-8" style="animation-delay: .45s">
             <div class="min-w-0">
-                <p class="text-xs uppercase tracking-[0.25em] text-muted-foreground">Offered At</p>
+                <p class="text-xs uppercase tracking-[0.25em] text-muted-foreground">Cash Price both units</p>
                 <p class="hero-price gold-text font-display">{{ $property['price_label'] }}</p>
-                <p class="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">For the pair · No commission</p>
+                <a
+                    href="{{ Route::has('web.genie') ? route('web.genie') : '#' }}"
+                    class="btn-ghost-lux mt-4 inline-flex"
+                >
+                    Bonus Offers
+                </a>
             </div>
             <div class="hero-actions flex flex-wrap gap-3 w-full sm:w-auto">
                 <a href="{{ Route::has('web.contact') ? route('web.contact') : '#' }}" class="btn-gold btn-gold-hover">
-                    Schedule a Private Tour
+                    Call to Schedule
                 </a>
-                <a href="{{ Route::has('web.gallery') ? route('web.gallery') : '#' }}" class="btn-ghost-lux">
+                <a href="{{ Route::has('web.bentley') ? route('web.bentley') : '#' }}" class="btn-ghost-lux">
                     View Gallery
                 </a>
             </div>
