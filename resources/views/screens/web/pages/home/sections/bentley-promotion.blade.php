@@ -23,8 +23,8 @@
         with accepted full price, cash at closing, transaction. 
         </p>
         <p class="mt-4 text-muted-foreground leading-relaxed">
-        w/ Additional Bonus Refurbished Genie GS-1930 Scissor Lift 
-        AND ALL PICS.
+        w/ Additional Bonus Refurbished Genie GS-1930 Scissor Lift.
+    
         </p>
         <a href="{{ Route::has('web.bentley') ? route('web.bentley') : '#' }}" class="btn-ghost-lux mt-8">
             View Details
