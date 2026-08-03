@@ -41,6 +41,12 @@ body.web-site img {
     height: auto;
 }
 
+/* Allow cover images to fill fixed-ratio frames (gallery, cards, etc.) */
+body.web-site img.object-cover {
+    height: 100%;
+    max-height: none;
+}
+
 body.web-site a,
 body.web-site button {
     -webkit-tap-highlight-color: transparent;

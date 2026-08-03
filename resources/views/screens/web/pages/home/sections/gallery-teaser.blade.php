@@ -10,17 +10,17 @@
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
         @foreach (array_slice($photos, 0, 4) as $photo)
-            <div class="aspect-square overflow-hidden hairline group">
+            <div class="relative aspect-square overflow-hidden hairline group">
                 <img
-                    src="{{ $photo['thumb'] }}"
-                    alt="{{ $photo['caption'] }}"
+                    src="{{ $photo['thumb'] ?? $photo['src'] }}"
+                    alt="{{ $photo['caption'] ?? 'Property photo' }}"
                     loading="lazy"
-                    class="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-110"
                 >
             </div>
         @endforeach
     </div>
-    <div class="mt-6 grid md:grid-cols-2 gap-3">
+    <!-- <div class="mt-6 grid md:grid-cols-2 gap-3">
         <div class="aspect-[16/7] hairline grid place-items-center text-center p-8 bg-surface/40">
             <div>
                 <p class="eyebrow justify-center">Coming Soon</p>
@@ -33,5 +33,5 @@
                 <p class="mt-3 text-lg text-muted-foreground">Scissor lift &amp; service bay photography</p>
             </div>
         </div>
-    </div>
+    </div> -->
 </section>
