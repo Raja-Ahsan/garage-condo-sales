@@ -4,7 +4,7 @@
             <p class="eyebrow">The Property, In Detail</p>
             <h2 class="section-title-lux mt-4">A Closer Look</h2>
         </div>
-        <a href="{{ Route::has('web.bentley') ? route('web.bentley') : '#' }}" class="btn-ghost-lux">
+        <a href="{{ Route::has('web.gallery') ? route('web.gallery') : '#' }}" class="btn-ghost-lux">
             Open Full Gallery
         </a>
     </div>

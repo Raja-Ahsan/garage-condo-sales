@@ -7,7 +7,7 @@
         <p class="mt-6 text-muted-foreground leading-relaxed">
             Inquiries are handled directly by the owner. Serious buyers, their
             advisors and qualified investors are welcome to request a private
-            walk-through or a confidential information package.
+            walk-through.
         </p>
 
         <div class="mt-10 space-y-6">
@@ -65,7 +65,7 @@
                     type="text"
                     required
                     value="{{ old('name') }}"
-                    class="mt-2 w-full bg-surface/60 border border-border rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-primary transition"
+                    class="contact-field mt-2 w-full rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-primary transition"
                 >
                 @error('name')
                     <p class="mt-1 text-xs text-destructive">{{ $message }}</p>
@@ -79,7 +79,7 @@
                     type="email"
                     required
                     value="{{ old('email') }}"
-                    class="mt-2 w-full bg-surface/60 border border-border rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-primary transition"
+                    class="contact-field mt-2 w-full rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-primary transition"
                 >
                 @error('email')
                     <p class="mt-1 text-xs text-destructive">{{ $message }}</p>
@@ -92,7 +92,7 @@
                     name="phone"
                     type="tel"
                     value="{{ old('phone') }}"
-                    class="mt-2 w-full bg-surface/60 border border-border rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-primary transition"
+                    class="contact-field mt-2 w-full rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-primary transition"
                 >
                 @error('phone')
                     <p class="mt-1 text-xs text-destructive">{{ $message }}</p>
@@ -106,7 +106,7 @@
                     type="text"
                     placeholder="Collector · Studio · Investment"
                     value="{{ old('use') }}"
-                    class="mt-2 w-full bg-surface/60 border border-border rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-primary transition"
+                    class="contact-field mt-2 w-full rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-primary transition"
                 >
                 @error('use')
                     <p class="mt-1 text-xs text-destructive">{{ $message }}</p>
@@ -121,7 +121,7 @@
                 name="message"
                 rows="5"
                 placeholder="Share timing, interest level, or specific questions."
-                class="mt-2 w-full bg-surface/60 border border-border rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-primary transition"
+                class="contact-field mt-2 w-full rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-primary transition"
             >{{ old('message') }}</textarea>
             @error('message')
                 <p class="mt-1 text-xs text-destructive">{{ $message }}</p>

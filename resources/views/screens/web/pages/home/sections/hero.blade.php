@@ -40,7 +40,7 @@
                 <p class="text-xs uppercase tracking-[0.25em]">Cash Price both units</p>
                 <p class="hero-price gold-text font-display">{{ $property['price_label'] }}</p>
                 <a
-                    href="{{ Route::has('web.genie') ? route('web.genie') : '#' }}"
+                    href="{{ Route::has('web.bentley') ? route('web.bentley') : '#' }}"
                     class="btn-ghost-lux mt-4 inline-flex"
                 >
                     Bonus Offers
@@ -50,7 +50,7 @@
                 <a href="{{ Route::has('web.contact') ? route('web.contact') : '#' }}" class="btn-gold btn-gold-hover">
                     Call to Schedule
                 </a>
-                <a href="{{ Route::has('web.bentley') ? route('web.bentley') : '#' }}" class="btn-ghost-lux">
+                <a href="{{ Route::has('web.gallery') ? route('web.gallery') : '#' }}" class="btn-ghost-lux">
                     View Gallery
                 </a>
             </div>

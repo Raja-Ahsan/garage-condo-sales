@@ -18,8 +18,13 @@ export function HeroReel({ photos = [] }) {
                     }}
                 />
             ))}
-            <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,var(--background)_95%)]" />
+            {/* Base scrim — keeps bright slides readable */}
+            <div className="absolute inset-0 bg-background/55" />
+            {/* Stronger left wash behind headline / bullets */}
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/75 to-background/20" />
+            {/* Bottom fade into page */}
+            <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_15%,var(--background)_96%)]" />
             <div
                 className="absolute inset-0 opacity-[0.06] pointer-events-none mix-blend-overlay"
                 style={{

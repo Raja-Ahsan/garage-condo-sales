@@ -11,9 +11,9 @@
         </p>
         <div class="mt-8 grid grid-cols-3 gap-2 sm:gap-4 stat-grid-tight">
             @foreach ([
-                ['k' => '$695k', 'v' => 'Comp low'],
+                ['k' => '$485k', 'v' => 'Comp low'],
                 ['k' => '$795k', 'v' => 'Comp high'],
-                ['k' => '$1.49M', 'v' => 'Two singles'],
+                ['k' => '$1.28M', 'v' => 'Two singles'],
             ] as $stat)
                 <div class="hairline p-3 sm:p-4 text-center min-w-0">
                     <p class="stat-value text-lg sm:text-xl gold-text font-display">{{ $stat['k'] }}</p>

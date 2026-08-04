@@ -1,7 +1,8 @@
 @php
     $nav = [
         ['route' => 'web.home', 'label' => 'Home'],
-        ['route' => 'web.bentley', 'label' => 'Gallery'],
+        ['route' => 'web.gallery', 'label' => 'Gallery'],
+    
         ['route' => 'web.specifications', 'label' => 'Specifications'],
         ['route' => 'web.comparables', 'label' => 'Comparables'],
         ['route' => 'web.map', 'label' => 'Location'],
@@ -10,6 +11,7 @@
     $contact = config('property.contact');
 @endphp
 
+<!-- ['route' => 'web.bentley', 'label' => 'Bentley'], -->
 <header
     class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60"
     @keydown.escape.window="mobileNavOpen = false"

@@ -4,8 +4,8 @@
     <div class="mt-8 md:mt-12 grid sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         @foreach ([
             ["Collector's Vault", 'Climate-controlled, secure display for exotics, classics and race cars.'],
-            ['Executive Retreat', 'A private office and lounge above the shop — miles from the noise.'],
-            ['Workshop & Studio', 'Wired for pro-grade tools, media production, restoration or fabrication.'],
+            ['Additional Space', 'A large loft above the shop — adds valuable space for storage.'],
+            ['Workshop & Studio', 'Upgraded Digital Infrastructure Fully upgraded hard wiring and WIFI '],
             ["Legacy Asset", "Rare commercial condo pair in North Dallas' fastest-appreciating corridor."],
         ] as [$title, $desc])
             <div class="p-6 hairline">
@@ -15,3 +15,6 @@
         @endforeach
     </div>
 </section>
+
+
+<!-- ['Workshop & Studio', 'Wired for pro-grade tools, media production, restoration or fabrication.'], -->

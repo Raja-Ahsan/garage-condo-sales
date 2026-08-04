@@ -120,3 +120,28 @@
         transform: translateX(100%);
     }
 }
+
+/* Contact form fields — beat Tailwind Forms white bg + light text clash */
+body.web-site .contact-field {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    caret-color: var(--gold);
+}
+
+body.web-site .contact-field::placeholder {
+    color: color-mix(in oklab, var(--muted-foreground) 85%, transparent);
+}
+
+body.web-site .contact-field:focus {
+    border-color: var(--gold);
+    background-color: var(--surface-2);
+}
+
+body.web-site .contact-field:-webkit-autofill,
+body.web-site .contact-field:-webkit-autofill:hover,
+body.web-site .contact-field:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--foreground);
+    -webkit-box-shadow: 0 0 0 1000px var(--surface) inset;
+    transition: background-color 99999s ease-out;
+}

@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\BentleyPromotionController;
 use App\Http\Controllers\Web\ComparablesController;
 use App\Http\Controllers\Web\ContactController;
+use App\Http\Controllers\Web\GalleryController;
 use App\Http\Controllers\Web\GenieScissorLiftController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\MapController;
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 Route::get('/', [HomeController::class, 'index'])->name('web.home');
+Route::get('/gallery', [GalleryController::class, 'index'])->name('web.gallery');
 Route::get('/bentley-promotion', [BentleyPromotionController::class, 'index'])->name('web.bentley');
 Route::get('/genie-scissor-lift', [GenieScissorLiftController::class, 'index'])->name('web.genie');
 Route::get('/specifications', [SpecificationsController::class, 'index'])->name('web.specifications');

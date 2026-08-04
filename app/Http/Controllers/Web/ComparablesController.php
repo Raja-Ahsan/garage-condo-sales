@@ -14,7 +14,7 @@ class ComparablesController extends Controller
             'compCards' => [
                 [
                     'label' => 'Comparable Low',
-                    'value' => '$695,000',
+                    'value' => '$485,000',
                     'note' => 'Single-unit sale · similar footprint · standard finish',
                     'highlight' => true,
                 ],
@@ -26,7 +26,7 @@ class ComparablesController extends Controller
                 ],
                 [
                     'label' => 'Two Singles Combined',
-                    'value' => '$1,490,000',
+                    'value' => '$1,280,000',
                     'note' => 'At the mid-comp of $745,000 per unit',
                     'highlight' => false,
                 ],
