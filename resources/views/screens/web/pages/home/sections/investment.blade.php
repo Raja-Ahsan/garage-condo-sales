@@ -4,7 +4,7 @@
         <h2 class="section-title-lux mt-4">Priced Below Comparable Singles.</h2>
         <p class="mt-6 text-muted-foreground leading-relaxed">
             Individual units in the Garages of America StarCreek community
-            transact between <span class="text-foreground">$695,000 and $795,000</span>.
+            transact between <span class="text-foreground">$485,000 and $795,000</span>.
             This side-by-side pair — with the Left unit&apos;s premium upgrades
             and a fully connected floor plan — is offered at
             <span class="gold-text"> {{ $property['price_label'] }}</span> total.

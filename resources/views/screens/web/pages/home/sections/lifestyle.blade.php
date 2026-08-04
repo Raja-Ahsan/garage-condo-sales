@@ -5,7 +5,7 @@
         @foreach ([
             ["Collector's Vault", 'Climate-controlled, secure display for exotics, classics and race cars.'],
             ['Additional Space', 'A large loft above the shop — adds valuable space for storage.'],
-            ['Workshop & Studio', 'Upgraded Digital Infrastructure Fully upgraded hard wiring and WIFI '],
+            ['Upgraded Digital Infrastructure', 'Upgraded Digital Infrastructure Fully upgraded hard wiring and WIFI '],
             ["Legacy Asset", "Rare commercial condo pair in North Dallas' fastest-appreciating corridor."],
         ] as [$title, $desc])
             <div class="p-6 hairline">
