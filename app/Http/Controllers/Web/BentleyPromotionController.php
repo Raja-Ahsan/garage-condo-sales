@@ -28,7 +28,7 @@ class BentleyPromotionController extends Controller
             ],
             'vehicleDetails' => [
                 'title' => '2013 Bentley Mulsanne',
-                'subtitle' => 'Vehicle details · Beluga Solid · Tan interior',
+                'subtitle' => 'Beluga Solid · Autumn-hand stitched Premium Leather Interior · Last model available with mirror matched Burlwood veneer trim.',
                 'rows' => [
                     ['label' => 'Mileage', 'value' => '22,155'],
                     ['label' => 'Trim', 'value' => 'SEDAN 4D'],

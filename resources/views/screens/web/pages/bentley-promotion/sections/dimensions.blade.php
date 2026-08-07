@@ -7,7 +7,7 @@
         <div class="min-w-0">
             <p class="eyebrow">Vehicle Specs</p>
             <h2 class="section-title-lux mt-4">
-                Dimensions &amp; Details
+            Bentley Mulsanne Details
             </h2>
         </div>
         <p class="max-w-md text-sm text-muted-foreground leading-relaxed">

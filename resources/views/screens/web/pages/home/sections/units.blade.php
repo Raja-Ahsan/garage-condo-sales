@@ -6,7 +6,7 @@
             'loft' => "15' × 20' finished office loft",
             'value' => 'Est. value $495,000',
             'body' => 'Full bath with glass-enclosed shower, tankless water heater, commercial floor sink, upgraded electrical, stained cement floors, 72" industrial fan with remote. Original staircase retained in storage and available for reinstall.',
-            'img' => $photos[6]['src'] ?? $photos[0]['src'],
+            'img' => $photos[1]['src'] ?? $photos[0]['src'],
         ],
         [
             'tag' => 'Left Unit',
@@ -14,7 +14,7 @@
             'loft' => "18' × 22.5' office loft + split-level 18' × 14' lounge",
             'value' => 'Comparable units at $695k+',
             'body' => 'Full kitchen with double SS sink, 12 LF countertop, appliances and commercial microwave. Larger private ½ bath, bronzed skylights, contemporary wire handrails, oak trim, hardwired data. Ground floor easily reconfigured.',
-            'img' => $photos[1]['src'] ?? $photos[0]['src'],
+            'img' => asset('images/gallery/C17-1.webp'),
         ],
     ] as $unit)
         <article class="card-lux overflow-hidden min-w-0">

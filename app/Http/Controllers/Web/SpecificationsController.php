@@ -13,8 +13,9 @@ class SpecificationsController extends Controller
 
         return view('screens.web.pages.specifications.index', [
             'property' => config('property'),
-            'rightUnitImage' => $photos[6]['src'] ?? $photos[0]['src'],
-            'leftUnitImage' => $photos[1]['src'] ?? $photos[0]['src'],
+            // Client: delete left pic; move former right pic to left; new gallery pic on right
+            'rightUnitImage' => $photos[1]['src'] ?? $photos[0]['src'],
+            'leftUnitImage' => asset('images/gallery/C17-1.webp'),
             'rightSpecs' => [
                 "Footprint: 20' × 40'",
                 "Ceilings: 24' – 26'",

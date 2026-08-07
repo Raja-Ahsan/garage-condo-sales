@@ -26,7 +26,7 @@ class ComparablesController extends Controller
                 ],
                 [
                     'label' => 'Two Singles Combined',
-                    'value' => '$1,280,000',
+                    'value' => '$125,000,000',
                     'note' => 'At the mid-comp of $745,000 per unit',
                     'highlight' => false,
                 ],

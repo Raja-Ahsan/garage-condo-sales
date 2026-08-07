@@ -38,8 +38,8 @@ return [
     'tagline' => 'Rare Side-by-Side Luxury Garage Condo Suites in Allen, Texas',
     'address' => '2137 Chelsea Blvd, Allen, TX 75013',
     'community' => 'StarCreek Community · Garages of America',
-    'price' => 1280000,
-    'price_label' => '$1,280,000',
+    'price' => 125000000,
+    'price_label' => '$125,000,000',
     'sqft' => 2930,
     'units' => 2,
     'contact' => [

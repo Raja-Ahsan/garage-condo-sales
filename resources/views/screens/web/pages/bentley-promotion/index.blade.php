@@ -9,7 +9,7 @@
     @include('screens.web.pages.bentley-promotion.sections.intro')
     @include('screens.web.pages.bentley-promotion.sections.dimensions')
     @include('screens.web.pages.bentley-promotion.sections.gallery')
-    {{-- Future sections can be added here --}}
+    @include('screens.web.pages.bentley-promotion.sections.double-bonus')
     @include('screens.web.partials.cta', [
         'eyebrow' => 'Private Showings',
         'title' => 'Experience the Bentley showcase in person.',

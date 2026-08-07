@@ -13,7 +13,7 @@
             @foreach ([
                 ['k' => '$485k', 'v' => 'Comp low'],
                 ['k' => '$795k', 'v' => 'Comp high'],
-                ['k' => '$1.28M', 'v' => 'Two singles'],
+                ['k' => '$125,000,000', 'v' => 'Two singles'],
             ] as $stat)
                 <div class="hairline p-3 sm:p-4 text-center min-w-0">
                     <p class="stat-value text-lg sm:text-xl gold-text font-display">{{ $stat['k'] }}</p>
@@ -36,7 +36,7 @@
             <li>· Original Right-unit staircase in storage, available</li>
         </ul>
         <a href="{{ Route::has('web.contact') ? route('web.contact') : '#' }}" class="btn-gold btn-gold-hover mt-8 w-full">
-            Request Info Package
+        Request additional Information 
         </a>
     </div>
 </section>

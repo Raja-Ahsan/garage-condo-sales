@@ -29,6 +29,24 @@
             </p>
         </div>
     </div>
+
+    <div class="border-t border-border/50">
+        <div class="container-lux py-8 md:py-10 flex flex-wrap justify-center gap-3">
+            <a
+                href="{{ Route::has('web.contact') ? route('web.contact') : '#' }}"
+                class="btn-gold btn-gold-hover justify-center"
+            >
+                Schedule Private Tour
+            </a>
+            <a
+                href="{{ Route::has('web.bentley') ? route('web.bentley') : '#' }}"
+                class="btn-ghost-lux justify-center"
+            >
+                Bentley Tour
+            </a>
+        </div>
+    </div>
+
     <div class="border-t border-border/50">
         <div class="container-lux site-footer-meta py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
             <span>&copy; {{ date('Y') }} Gotallenresale — All Rights Reserved</span>

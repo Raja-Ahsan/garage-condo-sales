@@ -13,7 +13,7 @@
     ></div>
 
     <div class="container-lux relative z-10 pb-14 sm:pb-20 md:pb-28 pt-8 min-w-0">
-        <p class="eyebrow fade-up">The Unicorn Opportunity</p>
+        <p class="eyebrow fade-up text-[1rem] font-bold">The Unicorn Opportunity</p>
         <h1 class="hero-title fade-up mt-4 sm:mt-6" style="animation-delay: .15s">
             Rare Side-by-Side <span class="gold-text">Luxury Garage Condo</span> Suites in Allen, Texas
         </h1>
