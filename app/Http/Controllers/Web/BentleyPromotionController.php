@@ -10,6 +10,8 @@ class BentleyPromotionController extends Controller
 {
     public function index(): View
     {
+        $genie = app(GenieScissorLiftController::class)->content();
+
         return view('screens.web.pages.bentley-promotion.index', [
             'property' => config('property'),
             'images' => $this->galleryImages(),
@@ -42,6 +44,10 @@ class BentleyPromotionController extends Controller
                     ['label' => 'Stock No.', 'value' => '018291'],
                 ],
             ],
+            'geniePlatform' => $genie['platform'],
+            'genieDimensions' => $genie['dimensions'],
+            'genieSpecifications' => $genie['specifications'],
+            'genieImages' => $genie['images'],
         ]);
     }
 

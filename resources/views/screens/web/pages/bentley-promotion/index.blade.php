@@ -10,6 +10,18 @@
     @include('screens.web.pages.bentley-promotion.sections.dimensions')
     @include('screens.web.pages.bentley-promotion.sections.gallery')
     @include('screens.web.pages.bentley-promotion.sections.double-bonus')
+
+    {{-- Full Genie scissor-lift details (same as /genie-scissor-lift) --}}
+    @include('screens.web.pages.genie-scissor-lift.sections.intro')
+    @include('screens.web.pages.genie-scissor-lift.sections.specs', [
+        'platform' => $geniePlatform,
+        'dimensions' => $genieDimensions,
+        'specifications' => $genieSpecifications,
+    ])
+    @include('screens.web.pages.genie-scissor-lift.sections.gallery', [
+        'images' => $genieImages,
+    ])
+
     @include('screens.web.partials.cta', [
         'eyebrow' => 'Private Showings',
         'title' => 'Experience the Bentley showcase in person.',

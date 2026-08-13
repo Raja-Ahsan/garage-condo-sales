@@ -14,5 +14,6 @@
     @include('screens.web.pages.home.sections.credibility')
     @include('screens.web.partials.cta')
     @include('screens.web.pages.home.sections.bentley-promotion')
+    @include('screens.web.pages.home.sections.genie-scissor-lift')
     @include('screens.web.pages.home.sections.disclaimers')
 @endsection

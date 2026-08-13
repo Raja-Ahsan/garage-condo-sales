@@ -43,18 +43,3 @@
         @endforeach
     </div>
 </section>
-
-<div class="container-lux mt-10 grid md:grid-cols-2 gap-3">
-    <div class="aspect-[16/7] hairline grid place-items-center text-center p-8 bg-surface/40">
-        <div>
-            <p class="eyebrow justify-center">Coming Soon</p>
-            <p class="mt-3 text-lg text-muted-foreground">Bentley in-suite showcase photography</p>
-        </div>
-    </div>
-    <div class="aspect-[16/7] hairline grid place-items-center text-center p-8 bg-surface/40">
-        <div>
-            <p class="eyebrow justify-center">Coming Soon</p>
-            <p class="mt-3 text-lg text-muted-foreground">Scissor lift &amp; service bay photography</p>
-        </div>
-    </div>
-</div>

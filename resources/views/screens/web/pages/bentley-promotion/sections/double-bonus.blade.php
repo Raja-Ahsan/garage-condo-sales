@@ -10,9 +10,7 @@
                 </h2>
                 <div class="gold-divider my-6 max-w-[120px]"></div>
                 <p class="text-muted-foreground leading-relaxed max-w-2xl">
-                    With an accepted full-price cash closing, receive the additional bonus —
-                    a refurbished Genie GS-1930 Scissor Lift. View full platform, dimensions,
-                    and operational specs.
+                With an accepted full-price cash closing, in addition to the Bentley Mulsanne, purchaser to receive an Double Bonus — a refurbished Genie GS-1930 Scissor Lift.
                 </p>
             </div>
             <div class="md:col-span-4 flex md:justify-end">

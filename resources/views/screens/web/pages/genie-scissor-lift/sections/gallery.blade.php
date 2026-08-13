@@ -27,7 +27,7 @@
                     src="{{ $hero['src'] }}"
                     alt="{{ $hero['alt'] }}"
                     loading="eager"
-                    class="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+                    class="w-full h-full transition-transform duration-[1200ms] group-hover:scale-105"
                 >
             </div>
         </div>

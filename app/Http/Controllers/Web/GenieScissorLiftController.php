@@ -10,8 +10,25 @@ class GenieScissorLiftController extends Controller
 {
     public function index(): View
     {
-        return view('screens.web.pages.genie-scissor-lift.index', [
-            'property' => config('property'),
+        return view('screens.web.pages.genie-scissor-lift.index', array_merge(
+            ['property' => config('property')],
+            $this->content()
+        ));
+    }
+
+    /**
+     * Shared Genie page data (also embedded on Bentley promotion).
+     *
+     * @return array{
+     *     images: list<array{src: string, alt: string, name: string}>,
+     *     platform: array<string, mixed>,
+     *     dimensions: array<string, mixed>,
+     *     specifications: array<string, mixed>
+     * }
+     */
+    public function content(): array
+    {
+        return [
             'images' => $this->galleryImages(),
             'platform' => [
                 'title' => 'Platform',
@@ -31,8 +48,8 @@ class GenieScissorLiftController extends Controller
                 'title' => 'Dimensions',
                 'subtitle' => 'Genie GS-1930 · overall machine size',
                 'rows' => [
-                    ['label' => 'Overall Length', 'value' => '6.01 ft', ],
-                    ['label' => 'Wheelbase', 'value' => '4.34 ft', ],
+                    ['label' => 'Overall Length', 'value' => '6.01 ft'],
+                    ['label' => 'Wheelbase', 'value' => '4.34 ft'],
                     ['label' => 'Overall Width', 'value' => '2.5 ft'],
                     ['label' => 'Height W/ Rails', 'value' => '6.57 ft'],
                     ['label' => 'Ground Clearance', 'value' => '2.37 in'],
@@ -63,7 +80,7 @@ class GenieScissorLiftController extends Controller
                     ],
                 ],
             ],
-        ]);
+        ];
     }
 
     /**
