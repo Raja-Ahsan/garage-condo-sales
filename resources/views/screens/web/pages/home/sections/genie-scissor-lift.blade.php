@@ -6,7 +6,7 @@
         </h2>
         <div class="gold-divider my-6 md:my-8 mx-auto max-w-[120px]"></div>
         <p class="text-muted-foreground leading-relaxed">
-            Refurbished Genie GS-1930 scissor lift — available as an additional bonus with an accepted full-price cash closing. Review platform, dimensions, and operational specs below.
+            With an accepted full-price cash closing, in addition to the Bentley Mulsanne, purchaser to receive an Double Bonus — a refurbished Genie GS-1930 Scissor Lift.
         </p>
         <a href="{{ Route::has('web.genie') ? route('web.genie') : '#' }}" class="btn-ghost-lux mt-8 inline-flex">
             View Details
