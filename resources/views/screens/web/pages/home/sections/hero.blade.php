@@ -47,7 +47,7 @@
                 </a>
             </div>
             <div class="hero-actions flex flex-wrap gap-3 w-full sm:w-auto">
-                <a href="{{ Route::has('web.contact') ? route('web.contact') : '#' }}" class="btn-gold btn-gold-hover">
+                <a href="tel:6154163537" class="btn-gold btn-gold-hover">
                     Call to Schedule
                 </a>
                 <a href="{{ Route::has('web.gallery') ? route('web.gallery') : '#' }}" class="btn-ghost-lux">
