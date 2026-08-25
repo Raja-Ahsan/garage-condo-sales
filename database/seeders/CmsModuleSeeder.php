@@ -35,9 +35,21 @@ class CmsModuleSeeder extends Seeder
             ]
         );
 
+        CmsModule::updateOrCreate(
+            ['route_name' => 'admin.inquiries.index'],
+            [
+                'name' => 'Inquiries',
+                'icon' => 'fa-solid fa-envelope',
+                'sort_order' => 3,
+                'status' => 'active',
+                'parent_id' => 0,
+            ]
+        );
+
         $allowed = [
             'admin.dashboard',
             'admin.sliders.index',
+            'admin.inquiries.index',
         ];
 
         CmsModule::query()
