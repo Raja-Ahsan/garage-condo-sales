@@ -5,28 +5,21 @@
     @include('layouts.admin.partials.head')
 </head>
 
-<body class="admin-panel dark-only" onload="typeof startTime === 'function' && startTime()">
-    <div class="loader-wrapper">
-        <div class="loader-index"><span></span></div>
-        <svg>
-            <defs></defs>
-            <filter id="goo">
-                <fegaussianblur in="SourceGraphic" stddeviation="11" result="blur"></fegaussianblur>
-                <fecolormatrix
-                    in="blur"
-                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
-                    result="goo"></fecolormatrix>
-            </filter>
-        </svg>
+<body class="admin-panel dark-only">
+    <div class="loader-wrapper" aria-hidden="true">
+        <div class="loader-index"></div>
     </div>
 
-    <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+    <div class="tap-top" role="button" tabindex="0" aria-label="Back to top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </div>
 
     <div class="page-wrapper compact-wrapper" id="pageWrapper">
         @include('layouts.admin.partials.header')
 
         <div class="page-body-wrapper">
             @include('layouts.admin.partials.sidebar')
+            <div class="sidebar-backdrop" data-sidebar-dismiss></div>
 
             <div class="page-body">
                 <div class="container-fluid">

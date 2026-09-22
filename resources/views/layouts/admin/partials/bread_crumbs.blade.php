@@ -1,5 +1,5 @@
 <div class="page-title">
-    <div class="row">
+    <div class="row align-items-center">
         <div class="col-sm-6">
             <h3>@yield('page_title', 'Dashboard')</h3>
         </div>
@@ -7,16 +7,13 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="{{ route('admin.dashboard') }}" aria-label="Admin home">
-                        <svg class="stroke-icon">
-                            <use href="{{ asset('assets/admin/svg/icon-sprite.svg#stroke-home') }}"></use>
-                        </svg>
+                        <i class="fa-solid fa-house"></i>
                     </a>
                 </li>
                 @hasSection('breadcrumb')
                     @yield('breadcrumb')
                 @else
-                    <li class="breadcrumb-item">Dashboard</li>
-                    <li class="breadcrumb-item active">Default</li>
+                    <li class="breadcrumb-item active">Dashboard</li>
                 @endif
             </ol>
         </div>

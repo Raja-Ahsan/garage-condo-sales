@@ -27,7 +27,10 @@ class DashboardTest extends TestCase
         $response = $this->actingAs($user)->get(route('admin.dashboard'));
 
         $response->assertOk();
-        $response->assertSee('Welcome Admin Tester!', false);
-        $response->assertSee('Listing Price', false);
+        $response->assertSee('Welcome back', false);
+        $response->assertSee('Admin Tester', false);
+        $response->assertSee('New inquiries', false);
+        $response->assertSee('Listing price', false);
+        $response->assertSee('Inquiries', false);
     }
 }

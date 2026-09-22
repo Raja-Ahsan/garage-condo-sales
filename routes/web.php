@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\InquiryController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Web\BentleyPromotionController;
@@ -51,6 +52,10 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('sliders', SliderController::class)->except(['show']);
+    Route::get('inquiries', [InquiryController::class, 'index'])->name('inquiries.index');
+    Route::get('inquiries/{inquiry}', [InquiryController::class, 'show'])->name('inquiries.show');
+    Route::patch('inquiries/{inquiry}', [InquiryController::class, 'update'])->name('inquiries.update');
+    Route::delete('inquiries/{inquiry}', [InquiryController::class, 'destroy'])->name('inquiries.destroy');
 });
 
 require __DIR__.'/auth.php';

@@ -1,69 +1,47 @@
 @php
     $modules = dynamic_sidebar();
     $currentRoute = optional(request()->route())->getName();
+    $brand = config('property.name', config('app.name'));
 @endphp
 
 <div class="sidebar-wrapper" data-sidebar-layout="stroke-svg">
     <div class="logo-wrapper">
-        <a href="{{ route('admin.dashboard') }}">
-            <img
-                class="img-fluid for-light"
-                src="{{ asset('assets/admin/images/logo/logo.png') }}"
-                alt="{{ config('app.name') }}"
-                style="max-width: 200px"
-            />
-            <img
-                class="img-fluid for-dark"
-                src="{{ asset('assets/admin/images/logo/logo_dark.png') }}"
-                alt="{{ config('app.name') }}"
-                style="max-width: 200px"
-            />
+        <a href="{{ route('admin.dashboard') }}" class="admin-brand">
+            <span class="admin-brand-mark">GC</span>
+            <span class="admin-brand-text">{{ $brand }}</span>
         </a>
 
-        <div class="back-btn" role="button" tabindex="0" aria-label="Collapse sidebar">
+        <div class="back-btn" role="button" tabindex="0" data-sidebar-toggle aria-label="Collapse sidebar">
             <i class="fa-solid fa-angle-left"></i>
         </div>
     </div>
 
     <nav class="sidebar-main" aria-label="Admin navigation">
-        <div class="left-arrow" id="left-arrow">
-            <i data-feather="arrow-left"></i>
-        </div>
-
         <div id="sidebar-menu">
             <ul class="sidebar-links" id="simple-bar">
-                <li class="back-btn">
-                    <div class="mobile-back text-end">
-                        <span>Back</span>
-                        <i class="fa-solid fa-angle-right ps-2" aria-hidden="true"></i>
-                    </div>
-                </li>
-
-                <li class="pin-title sidebar-main-title">
-                    <div>
-                        <h6>Pinned</h6>
-                    </div>
-                </li>
-
                 @forelse ($modules as $module)
                     @php
                         $hasChildren = $module->children && $module->children->count() > 0;
                         $childActive = $hasChildren && $module->children->contains(
                             fn ($child) => $child->route_name && $currentRoute === $child->route_name
                         );
-                        $isActive = ($module->route_name && $currentRoute === $module->route_name) || $childActive;
+                        $routePrefix = $module->route_name
+                            ? (string) preg_replace('/\.(index|create|edit|show)$/', '', $module->route_name)
+                            : '';
+                        $isActive = ($module->route_name && $currentRoute === $module->route_name)
+                            || ($routePrefix !== '' && $currentRoute && str_starts_with($currentRoute, $routePrefix.'.'))
+                            || $childActive;
                         $moduleUrl = $hasChildren
                             ? 'javascript:void(0)'
                             : (Route::has($module->route_name) ? route($module->route_name) : 'javascript:void(0)');
                     @endphp
 
-                    <li class="sidebar-list {{ $isActive ? 'active' : '' }}">
-                        <i class="fa-solid fa-thumbtack"></i>
-
+                    <li class="sidebar-list {{ $isActive ? 'active' : '' }} {{ $hasChildren ? 'has-children' : '' }} {{ $childActive ? 'is-open' : '' }}">
                         <a
                             href="{{ $moduleUrl }}"
                             class="sidebar-link sidebar-title {{ $hasChildren ? '' : 'link-nav' }} {{ $isActive ? 'active' : '' }}"
                             @if ($hasChildren)
+                                data-submenu-toggle
                                 aria-expanded="{{ $childActive ? 'true' : 'false' }}"
                             @endif
                         >
@@ -72,7 +50,7 @@
                             </span>
                             <span>{{ $module->name }}</span>
                             @if ($hasChildren)
-                                <div class="according-menu">
+                                <div class="according-menu ms-auto">
                                     <i class="fa-solid fa-angle-{{ $childActive ? 'down' : 'right' }}"></i>
                                 </div>
                             @endif
@@ -88,13 +66,7 @@
                                             : 'javascript:void(0)';
                                     @endphp
                                     <li class="{{ $childIsActive ? 'active' : '' }}">
-                                        <a
-                                            href="{{ $childUrl }}"
-                                            class="{{ $childIsActive ? 'active' : '' }}"
-                                            @if (! Route::has($child->route_name))
-                                                title="Module not available yet"
-                                            @endif
-                                        >
+                                        <a href="{{ $childUrl }}" class="{{ $childIsActive ? 'active' : '' }}">
                                             {{ $child->name }}
                                         </a>
                                     </li>
@@ -111,12 +83,24 @@
                             <span>Dashboard</span>
                         </a>
                     </li>
+                    <li class="sidebar-list {{ $currentRoute === 'admin.inquiries.index' || $currentRoute === 'admin.inquiries.show' ? 'active' : '' }}">
+                        <a href="{{ route('admin.inquiries.index') }}" class="sidebar-link sidebar-title link-nav {{ $currentRoute === 'admin.inquiries.index' || $currentRoute === 'admin.inquiries.show' ? 'active' : '' }}">
+                            <span class="theme-icons">
+                                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                            </span>
+                            <span>Inquiries</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-list {{ str_starts_with((string) $currentRoute, 'admin.sliders') ? 'active' : '' }}">
+                        <a href="{{ route('admin.sliders.index') }}" class="sidebar-link sidebar-title link-nav {{ str_starts_with((string) $currentRoute, 'admin.sliders') ? 'active' : '' }}">
+                            <span class="theme-icons">
+                                <i class="fa-solid fa-images" aria-hidden="true"></i>
+                            </span>
+                            <span>Slider</span>
+                        </a>
+                    </li>
                 @endforelse
             </ul>
-        </div>
-
-        <div class="right-arrow" id="right-arrow">
-            <i data-feather="arrow-right"></i>
         </div>
     </nav>
 </div>

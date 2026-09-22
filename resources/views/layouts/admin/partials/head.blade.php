@@ -5,29 +5,14 @@
 <meta name="description" content="@yield('meta_description', config('property.name').' Admin Panel')" />
 <meta name="author" content="{{ config('app.name', 'Admin') }}" />
 
-<title>@yield('title', 'Dashboard') — {{ config('app.name', 'Admin') }}</title>
+<title>@yield('title', 'Dashboard') — {{ config('property.name', 'Admin') }}</title>
 
-<link rel="icon" href="{{ asset('assets/admin/images/favicon.png') }}" type="image/x-icon" />
-<link rel="shortcut icon" href="{{ asset('assets/admin/images/favicon.png') }}" type="image/x-icon" />
+<link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml" />
+<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon" />
 
-<link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/vendors/fontawesome.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/vendors/icofont.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/vendors/themify.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/vendors/flag-icon.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/vendors/feather-icon.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/vendors/slick.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/vendors/slick-theme.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/vendors/scrollbar.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/vendors/animate.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/vendors/jquery.dataTables.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/vendors/select.bootstrap5.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/vendors/bootstrap.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/style.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/responsive.css') }}" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 
 @vite(['resources/css/admin/admin.css', 'resources/js/admin/admin.js'])
 

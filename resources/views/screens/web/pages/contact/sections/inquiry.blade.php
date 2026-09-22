@@ -140,6 +140,9 @@
             @if (session('success'))
                 <p class="text-xs uppercase tracking-[0.2em] text-primary">{{ session('success') }}</p>
             @endif
+            @if (session('error'))
+                <p class="text-xs text-destructive">{{ session('error') }}</p>
+            @endif
         </div>
         <p class="text-[11px] text-muted-foreground pt-2">Your information is used only to respond to this inquiry.</p>
     </form>

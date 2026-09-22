@@ -44,7 +44,7 @@ return [
     'units' => 2,
     'contact' => [
         'name' => 'Daniel Haggerty',
-        'email' => 'dahaggerty@gmail.com',
+        'email' => env('MAIL_TO_ADDRESS', 'Dahaggerty@gmail.com'),
         'phone' => '615-416-3537',
         'phone_href' => 'tel:+16154163537',
     ],

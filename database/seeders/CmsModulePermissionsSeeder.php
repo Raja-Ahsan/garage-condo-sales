@@ -16,6 +16,7 @@ class CmsModulePermissionsSeeder extends Seeder
             'admin' => [
                 'admin.dashboard' => ['is_view' => 1, 'is_add' => 1, 'is_update' => 1, 'is_delete' => 1],
                 'admin.sliders.index' => ['is_view' => 1, 'is_add' => 1, 'is_update' => 1, 'is_delete' => 1],
+                'admin.inquiries.index' => ['is_view' => 1, 'is_add' => 0, 'is_update' => 1, 'is_delete' => 1],
             ],
             'user' => [
                 'admin.dashboard' => ['is_view' => 1, 'is_add' => 0, 'is_update' => 0, 'is_delete' => 0],
